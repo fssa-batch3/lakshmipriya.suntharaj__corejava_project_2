@@ -46,13 +46,13 @@ public class UserService {
 	
 	public boolean updateUser(User user) throws ServiceException {
 	    try {
-	        // Validate the user's email and password before proceeding with the update
+	        
 	        UserValidator.validateEmail(user.getEmail());
 	        UserValidator.validatePassword(user.getPassword());
 
 	        UserDAO userDAO = new UserDAO();
 
-	        // Perform the update operation in the database
+	        
 	        if (userDAO.updateUser(user)) {
 	            System.out.println(user.getEmail() + " information updated successfully");
 	            return true;
