@@ -9,7 +9,7 @@ import com.fssa.recipe.service.exception.ServiceException;
 
 public class TestAddRecipeFeature {
     @Test
-    public void testAddRecipeSuccess() {
+     void testAddRecipeSuccess() {
         RecipeService recipeService = new RecipeService();
         Recipe recipe = new Recipe(204, "Tomato", "Delicious pasta dish with bacon and cream sauce.",
                 "Pasta, Bacon, Eggs, Parmesan cheese, Cream, Garlic, Black pepper, Salt",
@@ -24,8 +24,8 @@ public class TestAddRecipeFeature {
         }
     }
 
-
-    public void testAddRecipeMissingName() {
+@Test
+     void testAddRecipeMissingName() {
         RecipeService recipeService = new RecipeService();
         Recipe recipe = new Recipe(1, null, "Description", "Ingredients", "Instructions", "ImageUrl");
         
@@ -38,7 +38,7 @@ public class TestAddRecipeFeature {
     }
 
     
-    public void testAddRecipeMissingDescription() {
+     void testAddRecipeMissingDescription() {
         RecipeService recipeService = new RecipeService();
         Recipe recipe = new Recipe(1, "RecipeName", null, "Ingredients", "Instructions", "ImageUrl");
         
@@ -49,7 +49,7 @@ public class TestAddRecipeFeature {
             fail();
         }
     }
-    public void testAddRecipeInvalidIngredients() {
+    void testAddRecipeInvalidIngredients() {
         RecipeService recipeService = new RecipeService();
         Recipe recipe = new Recipe(1, "RecipeName", "Description", null, "Instructions", "ImageUrl");
         
