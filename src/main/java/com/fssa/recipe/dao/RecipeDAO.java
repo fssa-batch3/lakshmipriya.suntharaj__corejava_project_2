@@ -19,10 +19,12 @@ public class RecipeDAO {
 
 	public boolean addRecipe(Recipe recipe) throws SQLException {
 	    int rows = 0;
-
-	    try (Connection connection = getConnection()) {
-	        String query = "INSERT INTO recipes (RecipeID, name, description, ingredients, instructions, imageUrl) VALUES (?, ?, ?, ?, ?, ?)";
-	        try (PreparedStatement pmt = connection.prepareStatement(query)) {
+	    String query = "INSERT INTO recipes (RecipeID, name, description, ingredients, instructions, imageUrl) VALUES (?, ?, ?, ?, ?, ?)";
+	    try (Connection connection = getConnection();
+	       
+	         PreparedStatement pmt = connection.prepareStatement(query))
+	    
+	    {
 	            pmt.setInt(1, recipe.getRecipeId());
 	            pmt.setString(2, recipe.getName());
 	            pmt.setString(3, recipe.getDescription());
@@ -32,7 +34,8 @@ public class RecipeDAO {
 
 	            rows = pmt.executeUpdate();
 	        }
-	    } catch (SQLException e) {
+	
+	    catch (SQLException e) {
 	        e.printStackTrace();
 	    }
 
