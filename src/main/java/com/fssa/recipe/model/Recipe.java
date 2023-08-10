@@ -8,6 +8,13 @@ public class Recipe {
     private String ingredients;
     private String instructions;
     private String imageUrl;
+//    private String Category;
+//	public String getCategory() {
+//		return Category;
+//	}
+//	public void setCategory(String category) {
+//		Category = category;
+//	}
 	public int getRecipeId() {
 		return RecipeId;
 	}
@@ -53,7 +60,9 @@ public class Recipe {
 		this.ingredients = ingredients;
 		this.instructions = instructions;
 		this.imageUrl = imageUrl;
+		
 	}
+	
 
     
 }

@@ -5,7 +5,7 @@ import com.fssa.recipe.validation.exception.InValidRecipeException;
 
 public class RecipeValidator {
 
-    public static boolean validateRecipe(Recipe recipe) throws InValidRecipeException {
+    public boolean validateRecipe(Recipe recipe) throws InValidRecipeException {
         if (recipe != null && validateName(recipe.getName()) && validateDescription(recipe.getDescription())
                 && validateIngredients(recipe.getIngredients()) && validateInstructions(recipe.getInstructions())
                 && validateImageUrl(recipe.getImageUrl())) {
@@ -15,44 +15,45 @@ public class RecipeValidator {
         }
     }
     
-    public static boolean validateName(String name) {
+    public boolean validateName(String name) throws InValidRecipeException {
         if (name == null) {
-            System.out.println("Invalid Name");
-            return false;
+            throw new InValidRecipeException("Invalid Name");
         }
         return true;
     }
 
-    public static boolean validateDescription(String description) {
+    public boolean validateDescription(String description) throws InValidRecipeException {
         if (description == null) {
-            System.out.println("Invalid description");
-            return false;
+            throw new InValidRecipeException("Invalid description");
         }
         return true;
     }
 
-    public static boolean validateIngredients(String ingredients) {
+    public boolean validateIngredients(String ingredients) throws InValidRecipeException {
         if (ingredients == null) {
-            System.out.println("Invalid ingredients");
-            return false;
+            throw new InValidRecipeException("Invalid ingredients");
         }
         return true;
     }
 
-    public static boolean validateInstructions(String instructions) {
+    public boolean validateInstructions(String instructions) throws InValidRecipeException {
         if (instructions == null) {
-            System.out.println("Invalid Instruction");
-            return false;
+            throw new InValidRecipeException("Invalid Instruction");
         }
         return true;
     }
 
-    public static boolean validateImageUrl(String imageUrl) {
+    public boolean validateImageUrl(String imageUrl) throws InValidRecipeException {
         if (imageUrl == null) {
-            System.out.println("Invalid imgurl");
-            return false;
+            throw new InValidRecipeException("Invalid imgurl");
         }
-
+        return true;
+    }
+    
+    public boolean validateCategory(String category) throws InValidRecipeException {
+        if (category == null) {
+            throw new InValidRecipeException("Invalid Category");
+        }
         return true;
     }
 }
