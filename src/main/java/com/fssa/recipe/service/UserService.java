@@ -2,11 +2,12 @@ package com.fssa.recipe.service;
 
 import java.sql.SQLException;
 
-import com.fssa.recipe.dao.*;
-import com.fssa.recipe.model.*;
+import com.fssa.recipe.dao.UserDAO;
+import com.fssa.recipe.model.User;
 import com.fssa.recipe.service.exception.ServiceException;
-import com.fssa.recipe.validation.*;
+import com.fssa.recipe.validation.UserValidator;
 import com.fssa.recipe.validation.exception.InvalidUserException;
+
 
 public class UserService {
 
@@ -21,7 +22,7 @@ public class UserService {
 			throw new ServiceException(e);
 		}
 
-	}
+	} 
 
 	public boolean loginUser(User user) throws ServiceException {
 
@@ -31,6 +32,7 @@ public class UserService {
 
 			UserDAO userDAO = new UserDAO();
 			if (userDAO.login(user)) {
+				
 				System.out.println(user.getEmail() + " Successfully logged in");
 				return true;
 			} 
