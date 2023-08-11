@@ -7,7 +7,7 @@ import com.fssa.recipe.model.Recipe;
 import com.fssa.recipe.service.RecipeService;
 import com.fssa.recipe.service.exception.ServiceException;
 
-public class TestAddRecipeFeature {
+ class TestAddRecipeFeature {
     @Test
      void testAddRecipeSuccess() {
         RecipeService recipeService = new RecipeService();

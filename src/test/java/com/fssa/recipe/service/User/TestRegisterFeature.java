@@ -10,7 +10,7 @@ import com.fssa.recipe.model.User;
 import com.fssa.recipe.service.UserService;
 import com.fssa.recipe.service.exception.ServiceException;
 
-public class TestRegisterFeature {
+ class TestRegisterFeature {
 
 
 

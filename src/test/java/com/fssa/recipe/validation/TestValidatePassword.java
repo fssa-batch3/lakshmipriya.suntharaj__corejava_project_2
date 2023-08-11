@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import com.fssa.recipe.validation.UserValidator;
 
 
-public class TestValidatePassword {
+ class TestValidatePassword {
 @Test
 	 void testValidPassword() {
 

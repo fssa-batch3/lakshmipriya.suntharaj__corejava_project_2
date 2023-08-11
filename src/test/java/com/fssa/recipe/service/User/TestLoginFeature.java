@@ -11,7 +11,7 @@ import com.fssa.recipe.service.UserService;
 import com.fssa.recipe.service.exception.ServiceException;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
-public class TestLoginFeature {
+ class TestLoginFeature {
 
 	
 	@Test

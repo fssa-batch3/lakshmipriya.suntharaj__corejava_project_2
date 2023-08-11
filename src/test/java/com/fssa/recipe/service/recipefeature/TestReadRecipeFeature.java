@@ -7,9 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public class TestReadRecipeFeature {
+ class TestReadRecipeFeature {
 
-	public static void main(String[] args) {
+	 static void main(String[] args) {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "1234567890");
 
