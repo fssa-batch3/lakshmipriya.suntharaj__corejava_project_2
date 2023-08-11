@@ -28,9 +28,9 @@ public class UserValidator {
 		if (match) {
 			System.out.println("The user name is valid.");
 		} else {
-			System.out.println("The user name is not valid");
+			System.err.println("The user name is not valid");
 		}
-		return match;
+		return match; 
 	}
 
 	public static boolean validatePassword(String password) {
@@ -42,7 +42,7 @@ public class UserValidator {
 		if (match) {
 			System.out.println("Valid password.");
 		} else {
-			System.out.println("Invalid password.");
+			System.err.println("Invalid password.");
 		}
 		return match;
 	}
@@ -56,7 +56,7 @@ public class UserValidator {
 		if (isMatch) {
 			System.out.println("The email address is: Valid");
 		} else {
-			System.out.println("The email address is: Invalid");
+			System.err.println("The email address is: Invalid");
 		}
 		return isMatch;
 	}
