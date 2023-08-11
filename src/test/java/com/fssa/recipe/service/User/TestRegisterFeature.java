@@ -17,7 +17,7 @@ import com.fssa.recipe.service.exception.ServiceException;
 	@Test
 	 void testRegistrationSuccess() { 
 		UserService userService = new UserService();
-		User user1 = new User("priya@gmail.com", "Priya", "Zxcvbnm@1");
+		User user1 = new User("suryaganesh@gmail.com", "SuryaGanesh", "Zxcvbnm@1");
 		try {
 			assertTrue(userService.registerUser(user1));
 		} catch (ServiceException e) {
@@ -52,20 +52,22 @@ import com.fssa.recipe.service.exception.ServiceException;
 
 		}
 	}
-	 void testDuplicateUserRegistration() {
+	void testDuplicateUserRegistration() {
 	    UserService userService = new UserService();
 	    User user1 = new User("vinit.gore@ctr.freshworks.com", "Vinit", "Zxcvbnm@1");
 	    User user2 = new User("vinit.gore@ctr.freshworks.com", "Vinit", "Zxcvbnm@1");
+
+	    User[] usersToRegister = {user1, user2};
+
 	    try {
-	        userService.registerUser(user1);
-	        userService.registerUser(user2);
+	        for (User user : usersToRegister) {
+	            userService.registerUser(user);
+	        }
 	        fail();
-	       
 	    } catch (ServiceException e) {
 	        e.printStackTrace();
 	    }
 	}
-
 	
 	
 	 
