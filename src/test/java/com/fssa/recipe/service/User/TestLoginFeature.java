@@ -15,7 +15,7 @@ public class TestLoginFeature {
 
 	
 	@Test
-	 public void loginSuccess() {
+	 void loginSuccess() {
     UserService userService = new UserService();
    
     User user = new User("Zxcvbnm@1", "Mullai2@gmail.com");
@@ -28,10 +28,10 @@ public class TestLoginFeature {
     }
     }
 
-	@Test
+	@Test 
 
 	
-	public void testUserDoesnotExists() {
+	 void testUserDoesnotExists() {
 	    UserService userService = new UserService();
 	    User user2 = new User( "Password@796","surya@gmail.com");
 	    try {
@@ -42,7 +42,7 @@ public class TestLoginFeature {
 	}
 	
 	@Test
-	public void testNullInput() {
+	 void testNullInput() {
         UserService userService = new UserService();
         User user3 = new User(null, null);
         try {

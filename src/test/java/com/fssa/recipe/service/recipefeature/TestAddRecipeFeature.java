@@ -48,7 +48,7 @@ public class TestAddRecipeFeature {
             e.printStackTrace();
             fail();
         }
-    }
+     }
     void testAddRecipeInvalidIngredients() {
         RecipeService recipeService = new RecipeService();
         Recipe recipe = new Recipe(1, "RecipeName", "Description", null, "Instructions", "ImageUrl");

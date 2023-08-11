@@ -43,7 +43,7 @@ public class UserDAO {
 		
 		int rows = pmt.executeUpdate();
 
-		// Return successful or not
+		// Return successful or not 
 
 		pmt.close();
 		connection.close();

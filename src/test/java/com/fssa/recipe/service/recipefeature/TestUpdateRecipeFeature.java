@@ -12,7 +12,7 @@ import com.fssa.recipe.service.exception.ServiceException;
 public class TestUpdateRecipeFeature {
 
     @Test
-    public void testUpdateRecipeSuccess() {
+    void testUpdateRecipeSuccess() {
         RecipeService recipeService = new RecipeService();
         Recipe recipe = new Recipe(200, "200th Updated Recipe", "Updated description",
                 "Updated ingredients", "Updated instructions", "updated_image_url");
@@ -26,7 +26,7 @@ public class TestUpdateRecipeFeature {
     }
 
     @Test
-    public void testUpdateRecipeInvalidData() {
+     void testUpdateRecipeInvalidData() {
         RecipeService recipeService = new RecipeService();
         Recipe recipe = new Recipe(1, null, "Updated description",
                 "Updated ingredients", "Updated instructions", "updated_image_url");

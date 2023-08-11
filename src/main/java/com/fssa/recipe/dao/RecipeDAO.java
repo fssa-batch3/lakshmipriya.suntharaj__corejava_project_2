@@ -42,7 +42,7 @@ public class RecipeDAO {
 	    return rows == 1;
 	}
 
-// list recipes
+// list recipes 
 	public List<Recipe> getAllRecipes() throws SQLException {
 		List<Recipe> recipes = new ArrayList<>();
 
@@ -91,9 +91,11 @@ public class RecipeDAO {
 
 	// Delete recipe from DB
 	public boolean deleteRecipe(int recipeId) throws SQLException {
-		Connection connection = getConnection();
+		
 		String query = "DELETE FROM recipes WHERE id = ?";
-		PreparedStatement pmt = connection.prepareStatement(query);
+		try(
+		Connection connection = getConnection();
+		PreparedStatement pmt = connection.prepareStatement(query)){;
 		pmt.setInt(1, recipeId);
 
 		int rows = pmt.executeUpdate();
@@ -103,5 +105,5 @@ public class RecipeDAO {
 
 		return rows == 1;
 	}
-
+	}
 }

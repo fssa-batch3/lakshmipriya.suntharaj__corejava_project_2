@@ -1,7 +1,6 @@
 package com.fssa.recipe.service.User;
 
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -16,18 +15,19 @@ public class TestRegisterFeature {
 
 
 	@Test
-	public void testRegistrationSuccess() {
+	 void testRegistrationSuccess() { 
 		UserService userService = new UserService();
 		User user1 = new User("vinit.gore@ctr.freshworks.com", "Vinit", "Zxcvbnm@1");
 		try {
 			assertTrue(userService.registerUser(user1));
 		} catch (ServiceException e) {
 			e.printStackTrace();
+			fail();
 		}
 	}
 
 	@Test
-	public void testRegistrationUsernameEmpty() {
+ void testRegistrationUsernameEmpty() {
 
 		UserService userService = new UserService();
 		User user1 = new User("vinit.gore@ctr.freshworks.com", "", "Zxcvbnm@1");
@@ -41,7 +41,7 @@ public class TestRegisterFeature {
 	}
 
 	@Test
-	public void testUserNull() {
+ void testUserNull() {
 		UserService userService = new UserService();
 		User user1 = null;
 		try {
@@ -52,7 +52,7 @@ public class TestRegisterFeature {
 
 		}
 	}
-	public void testDuplicateUserRegistration() {
+	 void testDuplicateUserRegistration() {
 	    UserService userService = new UserService();
 	    User user1 = new User("vinit.gore@ctr.freshworks.com", "Vinit", "Zxcvbnm@1");
 	    User user2 = new User("vinit.gore@ctr.freshworks.com", "Vinit", "Zxcvbnm@1");
