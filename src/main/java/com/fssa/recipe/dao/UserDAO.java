@@ -18,16 +18,18 @@ public class UserDAO {
 
 	// Get user from DB
 	public boolean login(User user) throws SQLException {
-
-		Connection connection = getConnection();
 		String query = "SELECT * FROM USER WHERE email = ? AND PASSWORD = ?";
-		PreparedStatement pmt = connection.prepareStatement(query);
+		
+		try (Connection connection = getConnection();
+		
+		PreparedStatement pmt = connection.prepareStatement(query);){
 		pmt.setString(1, user.getEmail());
 		pmt.setString(2, user.getPassword());
 
 		ResultSet rs = pmt.executeQuery();
 //		
 		return rs.next();
+	} 
 	}
 	// Add new task to DB
 
@@ -68,8 +70,6 @@ public class UserDAO {
 	    int rows = pmt.executeUpdate();
 
 	    
-	    pmt.close();
-	    connection.close();
 	    
 	    return rows == 1;
 	    
