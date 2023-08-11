@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.fssa.recipe.dao.exception.DAOException;
+
 import com.fssa.recipe.model.User;
 
 public class UserDAO {
