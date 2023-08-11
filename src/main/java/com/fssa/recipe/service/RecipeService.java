@@ -20,7 +20,7 @@ public class RecipeService {
             RecipeDAO recipeDAO = new RecipeDAO();
             return recipeDAO.addRecipe(recipe);
         } catch (InValidRecipeException | SQLException e) {
-            throw new ServiceException(e);s
+            throw new ServiceException(e);
         }
     }
 

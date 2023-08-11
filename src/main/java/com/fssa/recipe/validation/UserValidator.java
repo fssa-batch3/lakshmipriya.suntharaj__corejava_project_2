@@ -1,8 +1,9 @@
 package com.fssa.recipe.validation;
 
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
+
 
 import com.fssa.recipe.model.User;
 import com.fssa.recipe.validation.exception.InvalidUserException;
