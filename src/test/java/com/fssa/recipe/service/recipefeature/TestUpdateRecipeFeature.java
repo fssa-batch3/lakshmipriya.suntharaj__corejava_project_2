@@ -9,7 +9,7 @@ import com.fssa.recipe.model.Recipe;
 import com.fssa.recipe.service.RecipeService;
 import com.fssa.recipe.service.exception.ServiceException;
 
-public class TestUpdateRecipeFeature {
+ class TestUpdateRecipeFeature {
 
     @Test
     void testUpdateRecipeSuccess() {
