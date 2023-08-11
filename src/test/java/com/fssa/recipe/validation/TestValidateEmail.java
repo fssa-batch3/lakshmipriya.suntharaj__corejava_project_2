@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import com.fssa.recipe.validation.UserValidator;
 
 public class TestValidateEmail {
-
+ 
     @Test
     public void testValidEmail() {
         String validEmail = "lakshmipriya@example.com";
