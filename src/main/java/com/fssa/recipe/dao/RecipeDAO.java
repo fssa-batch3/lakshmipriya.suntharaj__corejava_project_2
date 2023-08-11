@@ -46,8 +46,9 @@ public class RecipeDAO {
 	public List<Recipe> getAllRecipes() throws SQLException {
 		List<Recipe> recipes = new ArrayList<>();
 
+		String query = "SELECT * FROM recipes" ;
 		try (Connection connection = getConnection();
-				PreparedStatement pmt = connection.prepareStatement("SELECT * FROM recipes");
+				PreparedStatement pmt = connection.prepareStatement(query);
 				ResultSet rs = pmt.executeQuery()) {
 
 			while (rs.next()) {
