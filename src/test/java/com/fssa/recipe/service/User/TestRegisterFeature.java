@@ -17,7 +17,7 @@ import com.fssa.recipe.service.exception.ServiceException;
 	@Test
 	 void testRegistrationSuccess() { 
 		UserService userService = new UserService();
-		User user1 = new User("vinit.gore@ctr.freshworks.com", "Vinit", "Zxcvbnm@1");
+		User user1 = new User("priya@gmail.com", "Priya", "Zxcvbnm@1");
 		try {
 			assertTrue(userService.registerUser(user1));
 		} catch (ServiceException e) {
@@ -68,7 +68,7 @@ import com.fssa.recipe.service.exception.ServiceException;
 
 	
 	
-	
+	 
 	
 	
 	

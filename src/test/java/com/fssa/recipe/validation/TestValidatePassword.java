@@ -10,7 +10,7 @@ import com.fssa.recipe.validation.UserValidator;
 
  class TestValidatePassword {
 @Test
-	 void testValidPassword() {
+	 void testValidPassword() { 
 
 		assertTrue(UserValidator.validatePassword("Password@123"));
 

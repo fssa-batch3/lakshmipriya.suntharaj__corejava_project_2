@@ -41,7 +41,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 	    }
 	}
 	
-	@Test
+	@Test 
 	 void testNullInput() {
         UserService userService = new UserService();
         User user3 = new User(null, null);
