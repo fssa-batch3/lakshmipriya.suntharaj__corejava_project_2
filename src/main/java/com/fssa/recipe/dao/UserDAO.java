@@ -33,9 +33,11 @@ public class UserDAO {
 
 	// Add new user to DB - Register
 	public boolean register(User user) throws SQLException {
-		Connection connection = getConnection();
 		String query = "INSERT INTO USER (email ,username,password) VALUES (?,?,?)";
-		PreparedStatement pmt = connection.prepareStatement(query);
+		try(
+		Connection connection = getConnection();
+		
+		PreparedStatement pmt = connection.prepareStatement(query);){
 		pmt.setString(1, user.getEmail());
 		pmt.setString(2, user.getUsername());
 		pmt.setString(3, user.getPassword());
@@ -51,19 +53,29 @@ public class UserDAO {
 		return rows == 1;
 
 	}
-	
+	}
 	
 // update user 
 	public boolean updateUser(User user) throws SQLException {
+		
+		String query = "UPDATE USER SET name = ? WHERE email = ?";
+		try(
 	    Connection connection = getConnection();
-	    String query = "UPDATE USER SET name = ? WHERE email = ?";
-	    PreparedStatement pmt = connection.prepareStatement(query);
+	    
+	    PreparedStatement pmt = connection.prepareStatement(query);){
 	    pmt.setString(1, user.getEmail());
 		pmt.setString(2, user.getUsername());
 	    int rows = pmt.executeUpdate();
 
+	    
+	    pmt.close();
+	    connection.close();
+	    
 	    return rows == 1;
+	    
+
+	    
 	}
 	
-	
+	}
 }
