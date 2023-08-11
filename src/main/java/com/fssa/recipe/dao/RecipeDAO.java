@@ -34,7 +34,7 @@ public class RecipeDAO {
 
 	            rows = pmt.executeUpdate();
 	        }
-	
+	 
 	    catch (SQLException e) {
 	        e.printStackTrace();
 	    }
@@ -81,8 +81,7 @@ public class RecipeDAO {
 			pmt.setInt(6, recipe.getRecipeId());
 
 			int	rows = pmt.executeUpdate();
-			pmt.close();
-			connection.close();
+			
 			
 			return rows == 1;
 		} 
@@ -92,19 +91,13 @@ public class RecipeDAO {
 
 	// Delete recipe from DB
 	public boolean deleteRecipe(int recipeId) throws SQLException {
-		
-		String query = "DELETE FROM recipes WHERE id = ?";
-		try(
-		Connection connection = getConnection();
-		PreparedStatement pmt = connection.prepareStatement(query)){;
-		pmt.setInt(1, recipeId);
-
-		int rows = pmt.executeUpdate();
-
-		pmt.close();
-		connection.close();
-
-		return rows == 1;
+	    String query = "DELETE FROM recipes WHERE id = ?";
+	    try (Connection connection = getConnection();
+	         PreparedStatement pmt = connection.prepareStatement(query)) {
+	        pmt.setInt(1, recipeId);
+	        int rows = pmt.executeUpdate();
+	        return rows == 1;
+	    }
 	}
-	}
+
 }
