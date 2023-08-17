@@ -19,7 +19,7 @@ public class RecipeDAO {
 
 	public boolean addRecipe(Recipe recipe) throws SQLException {
 	    int rows = 0;
-	    String query = "INSERT INTO recipes (RecipeID, name, description, ingredients, instructions, imageUrl) VALUES (?, ?, ?, ?, ?, ?)";
+	    String query = "INSERT INTO recipes (RecipeID, name, description, ingredients, instructions, imageUrl) VALUES (?, ?, ?, ?, ?, ? )";
 	    try (Connection connection = getConnection();
 	       
 	         PreparedStatement pmt = connection.prepareStatement(query))
@@ -31,7 +31,7 @@ public class RecipeDAO {
 	            pmt.setString(4, recipe.getIngredients());
 	            pmt.setString(5, recipe.getInstructions());
 	            pmt.setString(6, recipe.getImageUrl());
-
+               // pmt.setString(7, recipe.getCategory());
 	            rows = pmt.executeUpdate();
 	        }
 	 
@@ -58,7 +58,7 @@ public class RecipeDAO {
 				String ingredients = rs.getString("ingredients");
 				String instructions = rs.getString("instructions");
 				String imageUrl = rs.getString("imageUrl");
-
+               // String Category = rs.getString("Category");
 				Recipe recipe = new Recipe(id, name, description, ingredients, instructions, imageUrl);
 				recipes.add(recipe);
 			}
@@ -69,7 +69,7 @@ public class RecipeDAO {
 
 	// Update recipe in DB
 	public boolean updateRecipe(Recipe recipe) throws SQLException {
-		String query = "UPDATE recipes SET name = ?, description = ?, ingredients = ?, instructions = ?, imageUrl = ? WHERE RecipeID = ?";
+		String query = "UPDATE recipes SET name = ?, description = ?, ingredients = ?, instructions = ?, imageUrl = ? , Category = ? WHERE RecipeID = ?";
 		try (Connection connection = getConnection();
 
 				PreparedStatement pmt = connection.prepareStatement(query);) {
@@ -79,7 +79,7 @@ public class RecipeDAO {
 			pmt.setString(4, recipe.getInstructions());
 			pmt.setString(5, recipe.getImageUrl());
 			pmt.setInt(6, recipe.getRecipeId());
-
+           // pmt.setString(7,recipe.getCategory());
 			int	rows = pmt.executeUpdate();
 			
 			
@@ -91,7 +91,7 @@ public class RecipeDAO {
 
 	// Delete recipe from DB
 	public boolean deleteRecipe(int recipeId) throws SQLException {
-	    String query = "DELETE FROM recipes WHERE id = ?";
+	    String query = "UPDATE  recipes SET isDeleted = ? WHERE RecipeId = ?";
 	    try (Connection connection = getConnection();
 	         PreparedStatement pmt = connection.prepareStatement(query)) {
 	        pmt.setInt(1, recipeId);
@@ -101,5 +101,18 @@ public class RecipeDAO {
 	}
 	
 	
+//	public boolean deleteDesign(int designId) throws SQLException {
+//
+//		String query = "UPDATE designs SET isDeleted = ? WHERE designid = ?";
+//
+//		try (Connection connection = getConnection(); PreparedStatement pmt = connection.prepareStatement(query)) {
+//			pmt.setBoolean(1, true); // Set isDeleted to true to mark the design as deleted
+//			pmt.setInt(2, designId);
+//			int rows = pmt.executeUpdate();
+//			return rows == 1;
+//		}
+//	}
 
+	
+	
 }

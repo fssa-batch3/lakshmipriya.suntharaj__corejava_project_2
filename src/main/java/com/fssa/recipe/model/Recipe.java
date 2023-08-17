@@ -8,18 +8,38 @@ public class Recipe {
     private String ingredients;
     private String instructions;
     private String imageUrl;
-//    private String Category;
-//	public String getCategory() {
-//		return Category;
-//	}
-//	public void setCategory(String category) {
-//		Category = category;
-//	}
+    private String Category;
+    private boolean isDeleted;
+
+	public String getCategory() {
+		return Category;
+	}
+	public void setCategory(String category) {
+		Category = category;
+	}
 	public int getRecipeId() {
 		return RecipeId;
 	}
 	public void setRecipeId(int recipeId) {
 		RecipeId = recipeId;
+	}
+	public Recipe(int recipeId, String name, String description, String ingredients, String instructions,
+			String imageUrl, String category, boolean isDeleted) {
+		super();
+		RecipeId = recipeId;
+		this.name = name;
+		this.description = description;
+		this.ingredients = ingredients;
+		this.instructions = instructions;
+		this.imageUrl = imageUrl;
+		Category = category;
+		this.isDeleted = isDeleted;
+	}
+	public boolean isDeleted() {
+		return isDeleted;
+	}
+	public void setDeleted(boolean isDeleted) {
+		this.isDeleted = isDeleted;
 	}
 	public String getName() {
 		return name; 
@@ -51,6 +71,35 @@ public class Recipe {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
+//	public Recipe(int recipeId, String name, String description, String ingredients, String instructions,
+//			String imageUrl) {
+//		super();
+//		RecipeId = recipeId;
+//		this.name = name;
+//		this.description = description;
+//		this.ingredients = ingredients;
+//		this.instructions = instructions;
+//		this.imageUrl = imageUrl;
+//		
+//	}
+//	
+	public Recipe(int recipeId, String name, String description, String ingredients, String instructions,
+			String imageUrl, String category) {
+		super();
+		RecipeId = recipeId;
+		this.name = name;
+		this.description = description;
+		this.ingredients = ingredients;
+		this.instructions = instructions;
+		this.imageUrl = imageUrl;
+		Category = category;
+	}
+	@Override
+	public String toString() {
+		return "Recipe [RecipeId=" + RecipeId + ", name=" + name + ", description=" + description + ", ingredients="
+				+ ingredients + ", instructions=" + instructions + ", imageUrl=" + imageUrl + ", Category=" + Category
+				+ ", isDeleted=" + isDeleted + "]";
+	}
 	public Recipe(int recipeId, String name, String description, String ingredients, String instructions,
 			String imageUrl) {
 		super();
@@ -60,7 +109,6 @@ public class Recipe {
 		this.ingredients = ingredients;
 		this.instructions = instructions;
 		this.imageUrl = imageUrl;
-		
 	}
 	
 

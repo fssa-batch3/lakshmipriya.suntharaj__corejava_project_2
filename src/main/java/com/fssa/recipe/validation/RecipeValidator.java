@@ -5,7 +5,7 @@ import com.fssa.recipe.validation.exception.InValidRecipeException;
 
 public class RecipeValidator {
 
-    public boolean validateRecipe(Recipe recipe) throws InValidRecipeException {
+    public static boolean validateRecipe(Recipe recipe) throws InValidRecipeException {
         if (recipe != null && validateName(recipe.getName()) && validateDescription(recipe.getDescription())
                 && validateIngredients(recipe.getIngredients()) && validateInstructions(recipe.getInstructions())
                 && validateImageUrl(recipe.getImageUrl())) {
@@ -15,42 +15,43 @@ public class RecipeValidator {
         }
     }
     
-    public boolean validateName(String name) throws InValidRecipeException {
+    public static boolean validateName(String name) throws InValidRecipeException {
         if (name == null) {
             throw new InValidRecipeException("Invalid Name");
         }
+        
         return true;
     }
 
-    public boolean validateDescription(String description) throws InValidRecipeException {
+    public static boolean validateDescription(String description) throws InValidRecipeException {
         if (description == null) {
             throw new InValidRecipeException("Invalid description");
         }
         return true;
     }
 
-    public boolean validateIngredients(String ingredients) throws InValidRecipeException {
+    public static boolean validateIngredients(String ingredients) throws InValidRecipeException {
         if (ingredients == null) {
             throw new InValidRecipeException("Invalid ingredients");
         }
         return true;
     }
 
-    public boolean validateInstructions(String instructions) throws InValidRecipeException {
+    public static boolean validateInstructions(String instructions) throws InValidRecipeException {
         if (instructions == null) {
             throw new InValidRecipeException("Invalid Instruction");
         }
         return true;
     }
 
-    public boolean validateImageUrl(String imageUrl) throws InValidRecipeException {
+    public static boolean validateImageUrl(String imageUrl) throws InValidRecipeException {
         if (imageUrl == null) {
             throw new InValidRecipeException("Invalid imgurl");
         }
         return true;
     }
     
-    public boolean validateCategory(String category) throws InValidRecipeException {
+    public static boolean validateCategory(String category) throws InValidRecipeException {
         if (category == null) {
             throw new InValidRecipeException("Invalid Category");
         }
