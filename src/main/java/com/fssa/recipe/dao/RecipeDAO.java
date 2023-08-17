@@ -16,7 +16,8 @@ public class RecipeDAO {
 		return DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "1234567890");
 
 	}
-
+//add recipe
+	
 	public boolean addRecipe(Recipe recipe) throws SQLException {
 	    int rows = 0;
 	    String query = "INSERT INTO recipes (RecipeID, name, description, ingredients, instructions, imageUrl) VALUES (?, ?, ?, ?, ?, ? )";
@@ -101,17 +102,7 @@ public class RecipeDAO {
 	}
 	
 	
-//	public boolean deleteDesign(int designId) throws SQLException {
-//
-//		String query = "UPDATE designs SET isDeleted = ? WHERE designid = ?";
-//
-//		try (Connection connection = getConnection(); PreparedStatement pmt = connection.prepareStatement(query)) {
-//			pmt.setBoolean(1, true); // Set isDeleted to true to mark the design as deleted
-//			pmt.setInt(2, designId);
-//			int rows = pmt.executeUpdate();
-//			return rows == 1;
-//		}
-//	}
+
 
 	
 	
