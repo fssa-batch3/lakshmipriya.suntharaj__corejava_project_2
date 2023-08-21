@@ -1,4 +1,4 @@
-package com.fssa.recipe.service.recipefeature;
+package com.fssa.recipe.service;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;

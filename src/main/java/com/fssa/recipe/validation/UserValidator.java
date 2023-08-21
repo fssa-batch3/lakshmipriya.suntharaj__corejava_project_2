@@ -10,32 +10,35 @@ import com.fssa.recipe.validation.exception.InvalidUserException;
 
 public class UserValidator {
 	public static boolean validateUser(User user) throws InvalidUserException {
-		if (user != null && validateName(user.getUsername()) && validatePassword(user.getPassword())
-				&& validateEmail(user.getEmail())) {
+		if (user != null &&  validatePassword(user.getPassword())
+				) {
 			return true;
 		} else {
 			throw new InvalidUserException("User details not valid");
 		}
 	}
 
-	public static boolean validateName(String name) {
-		boolean match = false;
-		if (name == null)
-			return false;
-		String regex = "^[A-Za-z]\\w{2,29}$";
-		Pattern p = Pattern.compile(regex);
-		Matcher m = p.matcher(name);
-		match = m.matches();
-		if (match) {
-			System.out.println("The user name is valid.");
-		} else {
-			System.err.println("The user name is not valid");
-		}
-		return match; 
-	}
+	 public static boolean validateName(String name) {
+	        if (name == null) {
+	            System.out.println("The user name is null.");
+	            return false;
+	        }
+
+	        String regex = "^[A-Za-z]+$";
+	        Pattern pattern = Pattern.compile(regex);
+	        Matcher matcher = pattern.matcher(name);
+
+	        if (matcher.matches()) {
+	            System.out.println("The user name is valid.");
+	            return true;
+	        } else {
+	            System.out.println("The user name is not valid.");
+	            return false;
+	        }
+	    }
 
 	public static boolean validatePassword(String password) {
-		boolean match = false;
+		boolean match = true;
 		if (password == null)
 			return false;
 		String pattern_string = "(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=])(?=.*[^\\s]).{8,}$";
@@ -43,13 +46,13 @@ public class UserValidator {
 		if (match) {
 			System.out.println("Valid password.");
 		} else {
-			System.err.println("Invalid password.");
+			System.out.println("Invalid password.");
 		}
 		return match;
 	}
 
 	public static boolean validateEmail(String email) {
-		boolean isMatch = false;
+		boolean isMatch = true;
 		if (email == null)
 			return false;
 		String regex = "^.*@.*\\..*$";
@@ -57,7 +60,7 @@ public class UserValidator {
 		if (isMatch) {
 			System.out.println("The email address is: Valid");
 		} else {
-			System.err.println("The email address is: Invalid");
+			System.out.println("The email address is: Invalid");
 		}
 		return isMatch;
 	}

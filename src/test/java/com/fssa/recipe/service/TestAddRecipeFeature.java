@@ -1,10 +1,10 @@
-package com.fssa.recipe.service.recipefeature;
+package com.fssa.recipe.service;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import org.junit.jupiter.api.Test;
 
 import com.fssa.recipe.model.Recipe;
-import com.fssa.recipe.service.RecipeService;
+
 import com.fssa.recipe.service.exception.ServiceException;
 
  class TestAddRecipeFeature {

@@ -1,4 +1,4 @@
-package com.fssa.recipe.service.User;
+package com.fssa.recipe.service;
 
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.Test;
 
 import com.fssa.recipe.model.*;
-import com.fssa.recipe.service.UserService;
+
 import com.fssa.recipe.service.exception.ServiceException;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;

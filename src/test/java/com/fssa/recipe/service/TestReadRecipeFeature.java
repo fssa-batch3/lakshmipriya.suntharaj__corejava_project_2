@@ -1,4 +1,4 @@
-package com.fssa.recipe.service.recipefeature;
+package com.fssa.recipe.service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
