@@ -71,18 +71,7 @@ public class Recipe {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
-//	public Recipe(int recipeId, String name, String description, String ingredients, String instructions,
-//			String imageUrl) {
-//		super();
-//		RecipeId = recipeId;
-//		this.name = name;
-//		this.description = description;
-//		this.ingredients = ingredients;
-//		this.instructions = instructions;
-//		this.imageUrl = imageUrl;
-//		
-//	}
-//	
+
 	public Recipe(int recipeId, String name, String description, String ingredients, String instructions,
 			String imageUrl, String Category) {
 		super();

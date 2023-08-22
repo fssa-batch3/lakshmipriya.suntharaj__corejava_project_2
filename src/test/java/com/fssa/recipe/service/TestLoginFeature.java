@@ -35,7 +35,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 	    UserService userService = new UserService();
 	    User user2 = new User( "Password@796","surya@gmail.com");
 	    try {
-	        assertFalse(userService.loginUser(user2)); // Expecting login to fail, so assertFalse should return true.
+	        assertFalse(userService.loginUser(user2)); //asexcepted
 	    } catch (ServiceException e) {
 	        e.printStackTrace();
 	    }

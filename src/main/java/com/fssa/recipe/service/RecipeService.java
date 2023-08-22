@@ -14,9 +14,8 @@ public class RecipeService {
 
    
 	public boolean addRecipe(Recipe recipe) throws ServiceException {
-        RecipeValidator recipeValidator = new RecipeValidator();
         try {
-            recipeValidator.validateRecipe(recipe);
+            RecipeValidator.validateRecipe(recipe);
             RecipeDAO recipeDAO = new RecipeDAO();
             return recipeDAO.addRecipe(recipe);
         } catch (InValidRecipeException | SQLException e) {
@@ -36,10 +35,8 @@ public class RecipeService {
 
  
     public boolean updateRecipe(Recipe recipe) throws ServiceException {
-        RecipeValidator recipeValidator = new RecipeValidator();
-
         try {
-            recipeValidator.validateRecipe(recipe); // Use the instance you created
+            RecipeValidator.validateRecipe(recipe); // Use the instance you created
             RecipeDAO recipeDAO = new RecipeDAO();
             return recipeDAO.updateRecipe(recipe);
         } catch (InValidRecipeException | SQLException e) {
@@ -58,16 +55,5 @@ public class RecipeService {
     }
 
    
-//    public boolean deleteDesign(int designId) throws SQLException {
-//
-//		String query = "UPDATE designs SET isDeleted = ? WHERE designid = ?";
-//
-//		try (Connection connection = getConnection(); PreparedStatement pmt = connection.prepareStatement(query)) {
-//			pmt.setBoolean(1, true); // Set isDeleted to true to mark the design as deleted
-//			pmt.setInt(2, designId);
-//			int rows = pmt.executeUpdate();
-//			return rows == 1;
-//		}
-//	}
 
 }
