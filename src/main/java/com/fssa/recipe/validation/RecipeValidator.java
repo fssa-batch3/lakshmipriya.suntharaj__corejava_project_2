@@ -61,15 +61,14 @@ public class RecipeValidator {
     public static void validateCategory(String category) throws InValidRecipeException {
         if (category == null || category.trim().isEmpty()) {
             throw new InValidRecipeException("Invalid Category");
-        }
-        else if (category.equals("veg")) {
+        } else if (category.equals("veg")) {
             System.out.println("veg Category");
-        }
-        else if (category.equals("nonveg")) {
+        } else if (category.equals("nonveg")) {
             System.out.println("nonveg Category");
-        }
-        else if (category.equals("snacks")) {
+        } else if (category.equals("snacks")) {
             System.out.println("snacks Category");
+        } else {
+            throw new InValidRecipeException("Unknown Category");
         }
     }
 }

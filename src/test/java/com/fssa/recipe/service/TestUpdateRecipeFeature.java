@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.Test;
 
 import com.fssa.recipe.model.Recipe;
-import com.fssa.recipe.service.RecipeService;
+
 import com.fssa.recipe.service.exception.ServiceException;
 
  class TestUpdateRecipeFeature {

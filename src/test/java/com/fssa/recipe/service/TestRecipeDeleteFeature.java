@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import com.fssa.recipe.service.RecipeService;
+
 import com.fssa.recipe.service.exception.ServiceException;
 
 class TestRecipeDeleteFeature {
