@@ -32,7 +32,7 @@ public class Recipe {
 		this.ingredients = ingredients;
 		this.instructions = instructions;
 		this.imageUrl = imageUrl;
-		Category = Category;
+		
 		this.isDeleted = isDeleted;
 	}
 	public boolean isDeleted() {
