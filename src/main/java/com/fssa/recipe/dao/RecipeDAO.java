@@ -20,19 +20,19 @@ public class RecipeDAO {
 	
 	public boolean addRecipe(Recipe recipe) throws SQLException {
 	    int rows = 0;
-	    String query = "INSERT INTO recipes (RecipeID, name, description, ingredients, instructions, imageUrl) VALUES (?, ?, ?, ?, ?, ? )";
+	    String query = "INSERT INTO recipes (name, description, ingredients, instructions, imageUrl, Category) VALUES ( ?, ?, ?, ?, ? ,?)";
 	    try (Connection connection = getConnection();
 	       
 	         PreparedStatement pmt = connection.prepareStatement(query))
 	    
 	    {
-	            pmt.setInt(1, recipe.getRecipeId());
-	            pmt.setString(2, recipe.getName());
-	            pmt.setString(3, recipe.getDescription());
-	            pmt.setString(4, recipe.getIngredients());
-	            pmt.setString(5, recipe.getInstructions());
-	            pmt.setString(6, recipe.getImageUrl());
-               // pmt.setString(7, recipe.getCategory());
+	            //pmt.setInt(1, recipe.getRecipeId());
+	            pmt.setString(1, recipe.getName());
+	            pmt.setString(2, recipe.getDescription());
+	            pmt.setString(3, recipe.getIngredients());
+	            pmt.setString(4, recipe.getInstructions());
+	            pmt.setString(5, recipe.getImageUrl());
+                pmt.setString(6, recipe.getCategory());
 	            rows = pmt.executeUpdate();
 	        }
 	 
@@ -53,14 +53,14 @@ public class RecipeDAO {
 				ResultSet rs = pmt.executeQuery()) {
 
 			while (rs.next()) {
-				int id = rs.getInt("id");
+				//int id = rs.getInt("id");
 				String name = rs.getString("name");
 				String description = rs.getString("description");
 				String ingredients = rs.getString("ingredients");
 				String instructions = rs.getString("instructions");
 				String imageUrl = rs.getString("imageUrl");
                // String Category = rs.getString("Category");
-				Recipe recipe = new Recipe(id, name, description, ingredients, instructions, imageUrl);
+				Recipe recipe = new Recipe( name, description, ingredients, instructions, imageUrl);
 				recipes.add(recipe);
 			}
 		}
@@ -74,13 +74,13 @@ public class RecipeDAO {
 		try (Connection connection = getConnection();
 
 				PreparedStatement pmt = connection.prepareStatement(query);) {
-			pmt.setString(1, recipe.getName());
-			pmt.setString(2, recipe.getDescription());
-			pmt.setString(3, recipe.getIngredients());
-			pmt.setString(4, recipe.getInstructions());
-			pmt.setString(5, recipe.getImageUrl());
-			pmt.setInt(6, recipe.getRecipeId());
-           // pmt.setString(7,recipe.getCategory());
+			//pmt.setString(1, recipe.getName());
+			pmt.setString(1, recipe.getDescription());
+			pmt.setString(2, recipe.getIngredients());
+			pmt.setString(3, recipe.getInstructions());
+			pmt.setString(4, recipe.getImageUrl());
+			pmt.setInt(5, recipe.getRecipeId());
+           pmt.setString(6,recipe.getCategory());
 			int	rows = pmt.executeUpdate();
 			
 			

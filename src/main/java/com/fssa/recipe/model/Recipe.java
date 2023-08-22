@@ -8,7 +8,7 @@ public class Recipe {
     private String ingredients;
     private String instructions;
     private String imageUrl;
-    private String Category;
+   private String Category;
     private boolean isDeleted;
 
 	public String getCategory() {
@@ -32,7 +32,7 @@ public class Recipe {
 		this.ingredients = ingredients;
 		this.instructions = instructions;
 		this.imageUrl = imageUrl;
-		Category = category;
+		Category = Category;
 		this.isDeleted = isDeleted;
 	}
 	public boolean isDeleted() {
@@ -84,9 +84,29 @@ public class Recipe {
 //	}
 //	
 	public Recipe(int recipeId, String name, String description, String ingredients, String instructions,
-			String imageUrl, String category) {
+			String imageUrl, String Category) {
 		super();
 		RecipeId = recipeId;
+		this.name = name;
+		this.description = description;
+		this.ingredients = ingredients;
+		this.instructions = instructions;
+		this.imageUrl = imageUrl;
+		Category = Category;
+	}
+	public Recipe(String name, String description, String ingredients, String instructions, String imageUrl
+		) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.ingredients = ingredients;
+		this.instructions = instructions;
+		this.imageUrl = imageUrl;
+		
+	}
+	public Recipe(String name, String description, String ingredients, String instructions, String imageUrl,
+			String category) {
+		super();
 		this.name = name;
 		this.description = description;
 		this.ingredients = ingredients;
@@ -97,7 +117,7 @@ public class Recipe {
 	@Override
 	public String toString() {
 		return "Recipe [RecipeId=" + RecipeId + ", name=" + name + ", description=" + description + ", ingredients="
-				+ ingredients + ", instructions=" + instructions + ", imageUrl=" + imageUrl + ", Category=" + Category
+				+ ingredients + ", instructions=" + instructions + ", imageUrl=" + imageUrl 
 				+ ", isDeleted=" + isDeleted + "]";
 	}
 	public Recipe(int recipeId, String name, String description, String ingredients, String instructions,
