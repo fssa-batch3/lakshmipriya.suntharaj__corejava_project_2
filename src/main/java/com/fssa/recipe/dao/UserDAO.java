@@ -49,9 +49,7 @@ public class UserDAO {
 
 		// Return successful or not 
 
-		pmt.close();
-		connection.close();
-
+		
 		return rows == 1;
 
 	}

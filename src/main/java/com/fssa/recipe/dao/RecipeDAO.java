@@ -61,7 +61,7 @@ public class RecipeDAO {
 				String ingredients = rs.getString("ingredients");
 				String instructions = rs.getString("instructions");
 				String imageUrl = rs.getString("imageUrl");
-                String Category = rs.getString("Category");
+               // String Category = rs.getString("Category");
 				Recipe recipe = new Recipe( name, description, ingredients, instructions, imageUrl);
 				recipes.add(recipe);
 			}
