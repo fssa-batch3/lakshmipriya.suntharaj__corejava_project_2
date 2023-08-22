@@ -16,7 +16,9 @@ public class RecipeDAO {
 		return DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "1234567890");
 
 	}
-//add recipe
+//add recipe to the database
+
+	
 	
 	public boolean addRecipe(Recipe recipe) throws SQLException {
 	    int rows = 0;
@@ -26,7 +28,7 @@ public class RecipeDAO {
 	         PreparedStatement pmt = connection.prepareStatement(query))
 	    
 	    {
-	            //pmt.setInt(1, recipe.getRecipeId());
+	            
 	            pmt.setString(1, recipe.getName());
 	            pmt.setString(2, recipe.getDescription());
 	            pmt.setString(3, recipe.getIngredients());
@@ -53,13 +55,13 @@ public class RecipeDAO {
 				ResultSet rs = pmt.executeQuery()) {
 
 			while (rs.next()) {
-				//int id = rs.getInt("id");
+				
 				String name = rs.getString("name");
 				String description = rs.getString("description");
 				String ingredients = rs.getString("ingredients");
 				String instructions = rs.getString("instructions");
 				String imageUrl = rs.getString("imageUrl");
-               // String Category = rs.getString("Category");
+                String Category = rs.getString("Category");
 				Recipe recipe = new Recipe( name, description, ingredients, instructions, imageUrl);
 				recipes.add(recipe);
 			}
@@ -74,7 +76,7 @@ public class RecipeDAO {
 		try (Connection connection = getConnection();
 
 				PreparedStatement pmt = connection.prepareStatement(query);) {
-			//pmt.setString(1, recipe.getName());
+			pmt.setString(1, recipe.getName());
 			pmt.setString(1, recipe.getDescription());
 			pmt.setString(2, recipe.getIngredients());
 			pmt.setString(3, recipe.getInstructions());
