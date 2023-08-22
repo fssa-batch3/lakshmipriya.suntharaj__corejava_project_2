@@ -27,13 +27,11 @@ public class UserDAO {
 		pmt.setString(2, user.getPassword());
 
 		ResultSet rs = pmt.executeQuery();
-//		
+		
 		return rs.next();
 	} 
 	}
-	// Add new task to DB
-
-	// Add new user to DB - Register
+	
 	public boolean register(User user) throws SQLException {
 		String query = "INSERT INTO USER (userName ,email,password) VALUES (?,?,?)";
 		try(
