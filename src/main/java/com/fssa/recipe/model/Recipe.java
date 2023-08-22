@@ -92,7 +92,7 @@ public class Recipe {
 		this.ingredients = ingredients;
 		this.instructions = instructions;
 		this.imageUrl = imageUrl;
-		Category = Category;
+		
 	}
 	public Recipe(String name, String description, String ingredients, String instructions, String imageUrl
 		) {
