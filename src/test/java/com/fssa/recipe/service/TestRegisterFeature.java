@@ -14,7 +14,7 @@ class TestRegisterFeature {
 	@Test
 	void testRegistrationSuccess() {
 		UserService userService = new UserService();
-		User user1 = new User("vanitha", "vanith@gmail.com", "Zxcvbnm@1");
+		User user1 = new User("siva", "siva@gmail.com", "Zxcvbnm@1");
 
 		try {
 			boolean registrationResult = userService.registerUser(user1);

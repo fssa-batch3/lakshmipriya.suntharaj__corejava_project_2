@@ -18,7 +18,7 @@ public class RecipeDAO {
 	}
 //add recipe to the database
 
-	
+	 
 	
 	public boolean addRecipe(Recipe recipe) throws SQLException {
 	    int rows = 0;

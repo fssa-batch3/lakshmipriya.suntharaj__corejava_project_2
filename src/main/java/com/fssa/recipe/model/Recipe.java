@@ -119,7 +119,4 @@ public class Recipe {
 		this.instructions = instructions;
 		this.imageUrl = imageUrl;
 	}
-	
-
-    
 }
