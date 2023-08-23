@@ -15,7 +15,7 @@ public class RecipeDAO {
 	public Connection getConnection() throws SQLException {
 		return DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "1234567890");
 
-	}
+	} 
 //add recipe to the database
 
 	 
@@ -61,7 +61,6 @@ public class RecipeDAO {
 				String ingredients = rs.getString("ingredients");
 				String instructions = rs.getString("instructions");
 				String imageUrl = rs.getString("imageUrl");
-               // String Category = rs.getString("Category");
 				Recipe recipe = new Recipe( name, description, ingredients, instructions, imageUrl);
 				recipes.add(recipe);
 			}
