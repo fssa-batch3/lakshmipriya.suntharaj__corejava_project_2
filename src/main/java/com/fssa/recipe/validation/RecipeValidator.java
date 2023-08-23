@@ -8,7 +8,7 @@ public class RecipeValidator {
     public static boolean validateRecipe(Recipe recipe) throws InValidRecipeException {
         if (recipe != null && validateName(recipe.getName()) && validateDescription(recipe.getDescription())
                 && validateIngredients(recipe.getIngredients()) && validateInstructions(recipe.getInstructions())
-                && validateImageUrl(recipe.getImageUrl()) ) {
+                && validateImageUrl(recipe.getImageUrl()) && validateCategory(recipe.getCategory()) ) {
             return true;
         } else {
             throw new InValidRecipeException("Recipe details not valid");
@@ -34,7 +34,7 @@ public class RecipeValidator {
         if (ingredients == null || ingredients.trim().isEmpty()) {
             throw new InValidRecipeException("Invalid ingredients");
         }
-        return true;
+        return true; 
     }
 
     public static boolean validateInstructions(String instructions) throws InValidRecipeException {
@@ -58,7 +58,7 @@ public class RecipeValidator {
         return true;
     }
     
-    public static void validateCategory(String category) throws InValidRecipeException {
+    public static boolean validateCategory(String category) throws InValidRecipeException {
         if (category == null || category.trim().isEmpty()) {
             throw new InValidRecipeException("Invalid Category");
         } else if (category.equals("veg")) {
@@ -70,5 +70,6 @@ public class RecipeValidator {
         } else {
             throw new InValidRecipeException("Unknown Category");
         }
+		return false;
     }
 }
