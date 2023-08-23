@@ -2,7 +2,7 @@ package com.fssa.recipe.model;
 
 public class Recipe {
 
-	private int RecipeId;
+	private int recipeId;
     private String name;
     private String description;
     private String ingredients;
@@ -17,16 +17,12 @@ public class Recipe {
 	public void setCategory(String category) {
 		Category = category;
 	}
-	public int getRecipeId() {
-		return RecipeId;
-	}
-	public void setRecipeId(int recipeId) {
-		RecipeId = recipeId;
-	}
+	
+	
 	public Recipe(int recipeId, String name, String description, String ingredients, String instructions,
 			String imageUrl, String category, boolean isDeleted) {
 		super();
-		RecipeId = recipeId;
+		
 		this.name = name;
 		this.description = description;
 		this.ingredients = ingredients;
@@ -44,7 +40,7 @@ public class Recipe {
 	public String getName() {
 		return name; 
 	}
-	public void setName(String name) {
+	public void setName(String name) { 
 		this.name = name;
 	}
 	public String getDescription() {
@@ -75,7 +71,7 @@ public class Recipe {
 	public Recipe(int recipeId, String name, String description, String ingredients, String instructions,
 			String imageUrl, String Category) {
 		super();
-		RecipeId = recipeId;
+		recipeId = recipeId;
 		this.name = name;
 		this.description = description;
 		this.ingredients = ingredients;
@@ -105,14 +101,14 @@ public class Recipe {
 	}
 	@Override
 	public String toString() {
-		return "Recipe [RecipeId=" + RecipeId + ", name=" + name + ", description=" + description + ", ingredients="
+		return "Recipe [RecipeId=" + recipeId + ", name=" + name + ", description=" + description + ", ingredients="
 				+ ingredients + ", instructions=" + instructions + ", imageUrl=" + imageUrl 
 				+ ", isDeleted=" + isDeleted + "]";
 	}
 	public Recipe(int recipeId, String name, String description, String ingredients, String instructions,
 			String imageUrl) {
 		super();
-		RecipeId = recipeId;
+		
 		this.name = name;
 		this.description = description;
 		this.ingredients = ingredients;
