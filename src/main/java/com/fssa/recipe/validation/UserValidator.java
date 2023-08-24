@@ -39,7 +39,7 @@ public class UserValidator {
 
 	public static boolean validatePassword(String password) {
 		boolean match = true;
-		if (password == null)
+		if (password == null) 
 			return false;
 		String pattern_string = "(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=])(?=.*[^\\s]).{8,}$";
 		match = Pattern.matches(pattern_string, password);

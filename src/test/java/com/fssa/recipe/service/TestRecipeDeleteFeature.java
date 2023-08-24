@@ -18,7 +18,7 @@ class TestRecipeDeleteFeature {
 			assertTrue(RecipeService.deleteRecipe(recipeIdToDelete));
 			System.out.println("recipe deleted successfully");
 
-		} catch (ServiceException e) {
+		} catch (ServiceException e) { 
 			e.printStackTrace();
 		}
 	}
