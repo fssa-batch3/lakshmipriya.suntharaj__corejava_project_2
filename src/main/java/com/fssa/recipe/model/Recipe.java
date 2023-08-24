@@ -28,7 +28,7 @@ public class Recipe {
 		this.ingredients = ingredients;
 		this.instructions = instructions;
 		this.imageUrl = imageUrl;
-		
+		this.category = category;
 		this.isDeleted = isDeleted;
 	}
 	public boolean isDeleted() {
