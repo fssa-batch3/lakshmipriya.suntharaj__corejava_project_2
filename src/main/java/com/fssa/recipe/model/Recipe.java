@@ -19,7 +19,7 @@ public class Recipe {
 	}
 	
 	
-	public Recipe(int recipeId, String name, String description, String ingredients, String instructions,
+	public Recipe( String name, String description, String ingredients, String instructions,
 			String imageUrl, String category, boolean isDeleted) {
 		super();
 		
@@ -95,14 +95,5 @@ public class Recipe {
 				+ ingredients + ", instructions=" + instructions + ", imageUrl=" + imageUrl 
 				+ ", isDeleted=" + isDeleted + "]";
 	}
-	public Recipe(int recipeId, String name, String description, String ingredients, String instructions,
-			String imageUrl) {
-		super();
-		
-		this.name = name;
-		this.description = description;
-		this.ingredients = ingredients;
-		this.instructions = instructions;
-		this.imageUrl = imageUrl;
-	}
+	
 }
