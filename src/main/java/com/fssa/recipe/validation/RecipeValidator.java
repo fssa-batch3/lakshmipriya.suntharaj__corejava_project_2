@@ -5,16 +5,37 @@ import com.fssa.recipe.validation.exception.InValidRecipeException;
 
 public class RecipeValidator {
 
-    public static boolean validateRecipe(Recipe recipe) throws InValidRecipeException {
-        if (recipe != null && validateName(recipe.getName()) && validateDescription(recipe.getDescription())
-                && validateIngredients(recipe.getIngredients()) && validateInstructions(recipe.getInstructions())
-                && validateImageUrl(recipe.getImageUrl()) && validateCategory(recipe.getCategory()) ) {
-            return true;
-        } else {
-            throw new InValidRecipeException("Recipe details not valid");
-        }
-    }
-    
+	public static boolean validateRecipe(Recipe recipe) throws InValidRecipeException {
+	    if (recipe == null) {
+	        throw new InValidRecipeException("Recipe is null");
+	    }
+
+	    if (!validateName(recipe.getName())) {
+	        throw new InValidRecipeException("Name is not valid");
+	    }
+
+	    if (!validateDescription(recipe.getDescription())) {
+	        throw new InValidRecipeException("Description is not valid");
+	    }
+
+	    if (!validateIngredients(recipe.getIngredients())) {
+	        throw new InValidRecipeException("Ingredients are not valid");
+	    }
+
+	    if (!validateInstructions(recipe.getInstructions())) {
+	        throw new InValidRecipeException("Instructions are not valid");
+	    }
+
+	    if (!validateImageUrl(recipe.getImageUrl())) {
+	        throw new InValidRecipeException("Image URL is not valid");
+	    }
+
+	    if (!validateCategory(recipe.getCategory())) {
+	        throw new InValidRecipeException("Category is not valid");
+	    }
+
+	    return true;
+	}
     public static boolean validateName(String name) throws InValidRecipeException {
         if (name == null || name.trim().isEmpty()) {
             throw new InValidRecipeException("Invalid Name");
