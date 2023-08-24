@@ -8,14 +8,14 @@ public class Recipe {
     private String ingredients;
     private String instructions;
     private String imageUrl;
-   private String Category;
+   private String category;
     private boolean isDeleted;
 
 	public String getCategory() {
-		return Category;
+		return category;
 	}
 	public void setCategory(String category) {
-		Category = category;
+		this.category = category;
 	}
 	
 	
@@ -87,7 +87,7 @@ public class Recipe {
 		this.ingredients = ingredients;
 		this.instructions = instructions;
 		this.imageUrl = imageUrl;
-		Category = category;
+		this.category = category;
 	}
 	@Override
 	public String toString() {
