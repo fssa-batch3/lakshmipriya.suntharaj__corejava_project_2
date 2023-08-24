@@ -71,7 +71,7 @@ public class Recipe {
 	public Recipe(int recipeId, String name, String description, String ingredients, String instructions,
 			String imageUrl, String Category) {
 		super();
-		recipeId = recipeId;
+	
 		this.name = name;
 		this.description = description;
 		this.ingredients = ingredients;
