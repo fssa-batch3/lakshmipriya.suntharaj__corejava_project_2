@@ -38,9 +38,7 @@ public class RecipeDAO {
 	            rows = pmt.executeUpdate();
 	        }
 	 
-	    catch (SQLException e) {
-	        e.printStackTrace();
-	    }
+	  
 
 	    return rows == 1;
 	}
@@ -80,7 +78,7 @@ public class RecipeDAO {
 			pmt.setString(2, recipe.getIngredients());
 			pmt.setString(3, recipe.getInstructions());
 			pmt.setString(4, recipe.getImageUrl());
-			pmt.setInt(5, recipe.getRecipeId());
+			//pmt.setInt(5, recipe.getRecipeId());
            pmt.setString(6,recipe.getCategory());
 			int	rows = pmt.executeUpdate();
 			
