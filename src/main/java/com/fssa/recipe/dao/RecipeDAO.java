@@ -78,8 +78,8 @@ public class RecipeDAO {
 			pmt.setString(2, recipe.getIngredients());
 			pmt.setString(3, recipe.getInstructions());
 			pmt.setString(4, recipe.getImageUrl());
-			//pmt.setInt(5, recipe.getRecipeId());
-           pmt.setString(6,recipe.getCategory());
+			
+           pmt.setString(5,recipe.getCategory());
 			int	rows = pmt.executeUpdate();
 			
 			
