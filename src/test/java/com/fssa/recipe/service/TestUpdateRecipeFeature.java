@@ -14,7 +14,7 @@ import com.fssa.recipe.service.exception.ServiceException;
     @Test
     void testUpdateRecipeSuccess() {
         RecipeService recipeService = new RecipeService();
-        Recipe recipe = new Recipe(200, "200th Updated Recipe", "Updated description",
+        Recipe recipe = new Recipe("200th Updated Recipe", "Updated description",
                 "Updated ingredients", "Updated instructions", "updated_image_url");
         
         try {
@@ -28,7 +28,7 @@ import com.fssa.recipe.service.exception.ServiceException;
     @Test
      void testUpdateRecipeInvalidData() {
         RecipeService recipeService = new RecipeService();
-        Recipe recipe = new Recipe(1, null, "Updated description",
+        Recipe recipe = new Recipe(null, "Updated description",
                 "Updated ingredients", "Updated instructions", "updated_image_url");
         
         try {

@@ -1,16 +1,35 @@
 package com.fssa.recipe.model;
 
 public class Recipe {
-
-	private int recipeId;
-    private String name;
+	private String name;
     private String description;
     private String ingredients;
     private String instructions;
     private String imageUrl;
-   private String category;
+    private String category;
     private boolean isDeleted;
-
+	private int recipeId;
+	
+	
+	public Recipe(int recipeId, String name, String description, String ingredients, String instructions,
+			String imageUrl, String category, boolean isDeleted) {
+		super();
+		this.recipeId = recipeId;
+		this.name = name;
+		this.description = description;
+		this.ingredients = ingredients;
+		this.instructions = instructions;
+		this.imageUrl = imageUrl;
+		this.category = category;
+		this.isDeleted = isDeleted;
+	}
+	
+    
+    public int getRecipeId() {
+		return recipeId;
+	}
+	
+    
 	public String getCategory() {
 		return category;
 	}
