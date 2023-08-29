@@ -7,12 +7,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-
 import com.fssa.recipe.model.Recipe;
+
 
 public class RecipeDAO {
 
 	public Connection getConnection() throws SQLException {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+		}
 		return DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "1234567890");
 
 	} 
@@ -60,7 +66,8 @@ public class RecipeDAO {
 				String ingredients = rs.getString("ingredients");
 				String instructions = rs.getString("instructions");
 				String imageUrl = rs.getString("imageUrl");
-				Recipe recipe = new Recipe( name, description, ingredients, instructions, imageUrl);
+				String catagory = rs.getString("Category");
+				Recipe recipe = new Recipe( name, description, ingredients, instructions, imageUrl,catagory);
 				recipes.add(recipe);
 			}
 		}
@@ -79,7 +86,6 @@ public class RecipeDAO {
 			pmt.setString(2, recipe.getIngredients());
 			pmt.setString(3, recipe.getInstructions());
 			pmt.setString(4, recipe.getImageUrl());
-			
            pmt.setString(5,recipe.getCategory());
 			int	rows = pmt.executeUpdate();
 			

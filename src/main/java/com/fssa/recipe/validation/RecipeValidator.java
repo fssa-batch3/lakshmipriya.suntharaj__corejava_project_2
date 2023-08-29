@@ -30,9 +30,9 @@ public class RecipeValidator {
 	        throw new InValidRecipeException("Image URL is not valid");
 	    }
 
-	    if (!validateCategory(recipe.getCategory())) {
-	        throw new InValidRecipeException("Category is not valid");
-	    }
+//	    if (!validateCategory(recipe.getCategory())) {
+//	        throw new InValidRecipeException("Category is not valid");
+//	    }
 
 	    return true;
 	}
@@ -79,7 +79,7 @@ public class RecipeValidator {
         return true;
     }
     
-    public static boolean validateCategory(String category) throws InValidRecipeException {
+    public static void validateCategory(String category) throws InValidRecipeException {
         if (category == null || category.trim().isEmpty()) {
             throw new InValidRecipeException("Invalid Category");
         } else if (category.equals("veg")) {
@@ -91,6 +91,6 @@ public class RecipeValidator {
         } else {
             throw new InValidRecipeException("Unknown Category");
         }
-		return false;
+		
     }
 }

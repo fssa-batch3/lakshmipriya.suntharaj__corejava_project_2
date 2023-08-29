@@ -1,46 +1,39 @@
 package com.fssa.recipe.service;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import org.junit.jupiter.api.Test;
+
+import com.fssa.recipe.model.Recipe;
+import com.fssa.recipe.service.exception.ServiceException;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
- class TestReadRecipeFeature {
+import java.util.List;
 
-	 static void main(String[] args) {
+public class TestReadRecipeFeature {
+
+    @Test
+    void testGetAllRecipes() throws ServiceException {
+        RecipeService recipeService = new RecipeService();
+        List<Recipe> recipes = null;
+        
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "1234567890");
-
-            String selectQuery = "SELECT * FROM recipes";
-            PreparedStatement statement = connection.prepareStatement(selectQuery);
-
-            ResultSet resultSet = statement.executeQuery();
-
-            while (resultSet.next()) {
-                int id = resultSet.getInt("RecipeID");
-                String name = resultSet.getString("name");
-                String description = resultSet.getString("description");
-                String ingredients = resultSet.getString("ingredients");
-                String instructions = resultSet.getString("instructions");
-                String imageUrl = resultSet.getString("imageUrl");
-
-                System.out.println("Recipe ID: " + id);
-                System.out.println("Name: " + name);
-                System.out.println("Description: " + description);
-                System.out.println("Ingredients: " + ingredients);
-                System.out.println("Instructions: " + instructions);
-                System.out.println("Image URL: " + imageUrl);
-                System.out.println("11111111111111111111111111111111111111");
-            }
-
-            resultSet.close();
-            statement.close();
-            connection.close();
-        } catch (SQLException e) {
+            recipes = recipeService.getAllRecipes();
+        } catch (Exception e) {
             e.printStackTrace();
+            fail("An exception occurred");
+        }
+        
+        assertNotNull(recipes);
+        assertFalse(recipes.isEmpty());
+        assertEquals(5, recipes.size()); 
+        Recipe firstRecipe = recipes.get(0);
+        assertEquals("Pasta Carbonara", firstRecipe.getName());
+        assertEquals("Delicious pasta dish with bacon and cream sauce.", firstRecipe.getDescription());
+       
+        for (Recipe recipe : recipes) {
+            assertNotNull(recipe.getCategory());
+            assertTrue(recipe.getCategory().equals("veg") || recipe.getCategory().equals("nonveg"));
         }
     }
-
 }
