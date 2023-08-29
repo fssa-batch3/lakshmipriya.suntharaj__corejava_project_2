@@ -49,3 +49,5 @@ select* from recipes;
 
 select* from recipes where Category = "veg";
 select* from recipes where Category = "nonveg";
+
+

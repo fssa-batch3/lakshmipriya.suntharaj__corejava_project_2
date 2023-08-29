@@ -9,65 +9,60 @@ import java.sql.SQLException;
 import java.util.List;
 import com.fssa.recipe.model.Recipe;
 
-
 public class RecipeDAO {
 
 	public Connection getConnection() throws SQLException {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
-			
+
 			e.printStackTrace();
 		}
 		return DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "1234567890");
 
-	} 
+	}
 //add recipe to the database
 
-	 
-	
 	public boolean addRecipe(Recipe recipe) throws SQLException {
-	    int rows = 0;
-	    String query = "INSERT INTO recipes (name, description, ingredients, instructions, imageUrl, Category) VALUES ( ?, ?, ?, ?, ? ,?)";
-	    try (Connection connection = getConnection();
-	       
-	         PreparedStatement pmt = connection.prepareStatement(query))
-	    
-	    {
-	            
-	            pmt.setString(1, recipe.getName());
-	            pmt.setString(2, recipe.getDescription());
-	            pmt.setString(3, recipe.getIngredients());
-	            pmt.setString(4, recipe.getInstructions());
-	            pmt.setString(5, recipe.getImageUrl());
-                pmt.setString(6, recipe.getCategory());
-           
-	            rows = pmt.executeUpdate();
-	        }
-	 
-	  
+		int rows = 0;
+		String query = "INSERT INTO recipes (name, description, ingredients, instructions, imageUrl, Category) VALUES ( ?, ?, ?, ?, ? ,?)";
+		try (Connection connection = getConnection();
 
-	    return rows == 1;
+				PreparedStatement pmt = connection.prepareStatement(query))
+
+		{
+
+			pmt.setString(1, recipe.getName());
+			pmt.setString(2, recipe.getDescription());
+			pmt.setString(3, recipe.getIngredients());
+			pmt.setString(4, recipe.getInstructions());
+			pmt.setString(5, recipe.getImageUrl());
+			pmt.setString(6, recipe.getCategory());
+
+			rows = pmt.executeUpdate();
+		}
+
+		return rows == 1;
 	}
 
 // list recipes 
 	public List<Recipe> getAllRecipes() throws SQLException {
 		List<Recipe> recipes = new ArrayList<>();
 
-		String query = "SELECT * FROM recipes" ;
+		String query = "SELECT * FROM recipes";
 		try (Connection connection = getConnection();
 				PreparedStatement pmt = connection.prepareStatement(query);
 				ResultSet rs = pmt.executeQuery()) {
 
 			while (rs.next()) {
-				
+
 				String name = rs.getString("name");
 				String description = rs.getString("description");
 				String ingredients = rs.getString("ingredients");
 				String instructions = rs.getString("instructions");
 				String imageUrl = rs.getString("imageUrl");
 				String catagory = rs.getString("Category");
-				Recipe recipe = new Recipe( name, description, ingredients, instructions, imageUrl,catagory);
+				Recipe recipe = new Recipe(name, description, ingredients, instructions, imageUrl, catagory);
 				recipes.add(recipe);
 			}
 		}
@@ -86,30 +81,23 @@ public class RecipeDAO {
 			pmt.setString(2, recipe.getIngredients());
 			pmt.setString(3, recipe.getInstructions());
 			pmt.setString(4, recipe.getImageUrl());
-           pmt.setString(5,recipe.getCategory());
-			int	rows = pmt.executeUpdate();
-			
-			
-			return rows == 1;
-		} 
+			pmt.setString(5, recipe.getCategory());
+			int rows = pmt.executeUpdate();
 
-		
+			return rows == 1;
+		}
+
 	}
 
 	// Delete recipe from DB
 	public boolean deleteRecipe(int recipeId) throws SQLException {
-	    String query = "UPDATE  recipes SET isDeleted = ? WHERE RecipeId = ?";
-	    try (Connection connection = getConnection();
-	         PreparedStatement pmt = connection.prepareStatement(query)) {
-	        pmt.setInt(1, recipeId);
-	        int rows = pmt.executeUpdate();
-	        return rows == 1;
-	    }
+		String query = "UPDATE  recipes SET isDeleted = ? WHERE RecipeId = ?";
+		try (Connection connection = getConnection(); PreparedStatement pmt = connection.prepareStatement(query)) {
+			pmt.setBoolean(1, true); // Set isDeleted to true to mark the design as deleted
+			pmt.setInt(2, recipeId);
+			int rows = pmt.executeUpdate();
+			return rows == 1;
+		}
 	}
-	
-	
 
-
-	
-	
 }

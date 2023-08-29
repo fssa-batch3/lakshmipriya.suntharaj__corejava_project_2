@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import com.fssa.recipe.validation.exception.InValidRecipeException;
 
- class Testrecipedescription {
+ class TestRecipeDescription {
 
 	@Test
 	 void testValidDescription() throws InValidRecipeException {
