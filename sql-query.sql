@@ -2,18 +2,7 @@ USE project;
 select* from user;
 DROP TABLE user;
 
-CREATE TABLE User (
-    UserID int,
-    UserName varchar(255),
-    EmailId varchar(255)
-   
-    
-);
-select* from User_table;
-drop table User_table;
-select * from User;
-drop table User_table;
-drop table User;
+
 CREATE TABLE USER (
     Userid int ,
     Username varchar(255),

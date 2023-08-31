@@ -14,8 +14,8 @@ import com.fssa.recipe.service.exception.ServiceException;
     @Test
     void testUpdateRecipeSuccess() {
         RecipeService recipeService = new RecipeService();
-        Recipe recipe = new Recipe("200th Updated Recipe", "Updated description",
-                "Updated ingredients", "Updated instructions", "updated_image_url");
+        Recipe recipe = new Recipe("UpdatedRecipe", "Updated description",
+                "Updated ingredients", "Updated instructions", "https://www.example.com/images/pasta-carbonara.jpg","veg",1);
         
         try {
             assertTrue(recipeService.updateRecipe(recipe));

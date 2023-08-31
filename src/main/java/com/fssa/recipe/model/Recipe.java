@@ -8,6 +8,20 @@ public class Recipe {
     private String imageUrl;
     private String category;
     private boolean isDeleted;
+	public Recipe(String name, String description, String ingredients, String instructions, String imageUrl,
+			String category, int recipeId) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.ingredients = ingredients;
+		this.instructions = instructions;
+		this.imageUrl = imageUrl;
+		this.category = category;
+		this.recipeId = recipeId;
+	}
+
+
+
 	private int recipeId;
 	
 	
@@ -108,6 +122,17 @@ public class Recipe {
 		this.imageUrl = imageUrl;
 		this.category = category;
 	}
+	
+
+
+	
+
+	public Recipe() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 	@Override
 	public String toString() {
 		return "Recipe [RecipeId=" + recipeId + ", name=" + name + ", description=" + description + ", ingredients="
