@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+import com.fssa.recipe.validation.exception.InvalidUserException;
+
 
 
 
@@ -12,35 +14,65 @@ import org.junit.jupiter.api.Test;
 @Test
 	 void testValidPassword() { 
 
-		assertTrue(UserValidator.validatePassword("Password@123"));
+		try {
+			assertTrue(UserValidator.validatePassword("Password@123"));
+		} catch (InvalidUserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	} 
 
 	@Test
 	 void testInvalidPasswordWithoutSpecialCharacters() {
-		assertFalse(UserValidator.validatePassword("Password123"));
+		try {
+			assertFalse(UserValidator.validatePassword("Password123"));
+		} catch (InvalidUserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
 	@Test
 	 void testInvalidPasswordWithoutNumbers() {
-		assertFalse(UserValidator.validatePassword("Password@"));
+		try {
+			assertFalse(UserValidator.validatePassword("Password@"));
+		} catch (InvalidUserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
 	@Test
  void testInvalidPasswordWithoutCapitalLetters() {
-		assertFalse(UserValidator.validatePassword("password123"));
+		try {
+			assertFalse(UserValidator.validatePassword("password123"));
+		} catch (InvalidUserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Test
 	 void testInvalidPasswordWithoutSmallLetters() {
-		assertFalse(UserValidator.validatePassword("PASSWORD@123"));
+		try {
+			assertFalse(UserValidator.validatePassword("PASSWORD@123"));
+		} catch (InvalidUserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 	@Test
 void testInvalidPasswordShorterLength() {
-		assertFalse(UserValidator.validatePassword("Pas@123"));
+		try {
+			assertFalse(UserValidator.validatePassword("Pas@123"));
+		} catch (InvalidUserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 	

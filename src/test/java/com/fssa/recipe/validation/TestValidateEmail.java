@@ -4,25 +4,42 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import com.fssa.recipe.validation.exception.InvalidUserException;
+
  class TestValidateEmail {
  
     @Test
     void testValidEmail() {
         String validEmail = "lakshmipriya@example.com";
-        assertTrue(UserValidator.validateEmail(validEmail));
+        try {
+			assertTrue(UserValidator.validateEmail(validEmail));
+		} catch (InvalidUserException e) {
+			fail();
+			e.printStackTrace();
+		}
     }
 
     
     @Test
     void testInvalidEmailMissingAtSymbol() {
         String invalidEmail = "lakshmipriya.com";
-        assertFalse(UserValidator.validateEmail(invalidEmail));
+        try {
+			assertFalse(UserValidator.validateEmail(invalidEmail));
+		} catch (InvalidUserException e) {
+			
+			e.printStackTrace();
+		}
     }
 
     @Test
  void testInvalidEmailMissingDomain() {
         String invalidEmail = "lakshmipriya@";
-        assertFalse(UserValidator.validateEmail(invalidEmail));
+        try {
+			assertFalse(UserValidator.validateEmail(invalidEmail));
+		} catch (InvalidUserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
   
@@ -30,12 +47,22 @@ import org.junit.jupiter.api.Test;
     @Test
     void testInvalidEmailNullInput() {
         String invalidEmail = null;
-        assertFalse(UserValidator.validateEmail(invalidEmail));
+        try {
+			assertFalse(UserValidator.validateEmail(invalidEmail));
+		} catch (InvalidUserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     @Test
     void testInvalidEmailEmptyInput() {
         String invalidEmail = "";
-        assertFalse(UserValidator.validateEmail(invalidEmail));
+        try {
+			assertFalse(UserValidator.validateEmail(invalidEmail));
+		} catch (InvalidUserException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 }

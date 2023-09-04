@@ -72,16 +72,18 @@ public class RecipeDAO {
 
 	// Update recipe in DB
 	public boolean updateRecipe(Recipe recipe) throws SQLException {
-		String query = "UPDATE recipes SET name = ?, description = ?, ingredients = ?, instructions = ?, imageUrl = ? , Category = ? WHERE RecipeID = ?";
+		String query = "UPDATE recipes SET name = ?, description = ?, ingredients = ?, instructions = ?, "
+				+ "imageUrl = ? ,"+ " Category = ? WHERE RecipeID = ?";
 		try (Connection connection = getConnection();
 
 				PreparedStatement pmt = connection.prepareStatement(query);) {
 			pmt.setString(1, recipe.getName());
-			pmt.setString(1, recipe.getDescription());
-			pmt.setString(2, recipe.getIngredients());
-			pmt.setString(3, recipe.getInstructions());
-			pmt.setString(4, recipe.getImageUrl());
-			pmt.setString(5, recipe.getCategory());
+			pmt.setString(2, recipe.getDescription());
+			pmt.setString(3, recipe.getIngredients());
+			pmt.setString(4, recipe.getInstructions());
+			pmt.setString(5, recipe.getImageUrl());
+			pmt.setString(6, recipe.getCategory());
+			pmt.setInt(7,recipe.getRecipeId());
 			int rows = pmt.executeUpdate();
 
 			return rows == 1;

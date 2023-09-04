@@ -48,6 +48,7 @@ public class RecipeValidator {
         if (description == null || description.trim().isEmpty()) {
             throw new InValidRecipeException("Invalid description");
         }
+        
         return true;
     }
 

@@ -11,19 +11,21 @@ import com.fssa.recipe.service.exception.ServiceException;
 
 class TestRegisterFeature {
 
-	@Test
-	void testRegistrationSuccess() {
-		UserService userService = new UserService();
-		User user1 = new User("Gowtham", "gowtham@gmail.com", "Zxcvbnm@1");
+	 @Test
+	    public void testRegisterValidUser() {
+	      UserService registerService = new UserService();
+	      
+	        User validUser = new User("Vinit", "vanitha@gmail.com", "Zxcvbnm@123");
 
-		try {
-			boolean registrationResult = userService.registerUser(user1);
-			assertTrue(registrationResult);
-		} catch (ServiceException e) {
-			e.printStackTrace();
-			fail("Exception occurred during user registration");
-		}
-	}
+	        try {
+	            boolean result = registerService.registerUser(validUser);
+	            assertTrue(result); 
+	        } catch (ServiceException e) {
+	            fail("Exception should not be thrown for a valid user");
+	        }
+	    }
+
+
 
 	@Test
 	void testRegistrationUsernameEmpty() {
