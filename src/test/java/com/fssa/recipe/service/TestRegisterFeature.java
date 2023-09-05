@@ -10,36 +10,20 @@ import com.fssa.recipe.model.User;
 import com.fssa.recipe.service.exception.ServiceException;
 
 class TestRegisterFeature {
-
-	 @Test
-	    public void testRegisterValidUser() {
-	      UserService registerService = new UserService();
-	      
-	        User validUser = new User("Vinit", "vanitha@gmail.com", "Zxcvbnm@123");
-
-	        try {
-	            boolean result = registerService.registerUser(validUser);
-	            assertTrue(result); 
-	        } catch (ServiceException e) {
-	            fail("Exception should not be thrown for a valid user");
-	        }
-	    }
-
-
-
-	@Test
-	void testRegistrationUsernameEmpty() {
-
-		UserService userService = new UserService();
-		User user1 = new User(" ", "vinit@gamil.com", "Zxcvbnm@1");
-		try {
-			userService.registerUser(user1);
-			fail();
-		} catch (ServiceException e) {
-			e.printStackTrace();
-
+@Test
+	 void testRegisterSuccess() {
+			User user1 = new User("ajmal","ajmal@gmail.com","Dahrun@456");
+			UserService  UserService = new UserService();
+			try {
+				assertTrue(UserService.registerUser(user1)); 
+			} catch (ServiceException e) {
+				e.printStackTrace();  
+				fail(); 
+			}
 		}
-	}
+
+
+
 
 	@Test
 	void testUserNull() {

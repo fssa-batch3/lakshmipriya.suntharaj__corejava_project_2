@@ -14,10 +14,10 @@ import com.fssa.recipe.service.exception.ServiceException;
     @Test
     void testUpdateRecipeSuccess() {
         RecipeService recipeService = new RecipeService();
-        Recipe recipe = new Recipe("dosa", "Delicious pasta dish with bacon and cream sauce.",
-				"Pasta, Bacon, Eggs, Parmesan cheese, Cream, Garlic, Black pepper, Salt",
+        Recipe recipe = new Recipe("Chicken Gravy Recipe", "Chicken gravy is an authentic indian recipe made with lot of indian spices and masala.",
+				"3/4 kg Chicken, oil, Cinnamon Stick,Cloves, Cardanom podes, Garlic, Black pepper, Salt",
 				"1. Cook pasta according to package instructions.\n2. In a pan, fry bacon until crispy.\n3. In a bowl, whisk eggs, grated parmesan, cream, minced garlic, black pepper, and a pinch of salt.\n4. Drain cooked pasta and add it to the pan with bacon, then turn off the heat.\n5. Pour the egg mixture over the pasta and toss until coated in the sauce.\n6. Serve immediately with extra parmesan on top.",
-				"https://www.example.com/images/pasta-carbonara.jpg", "veg",2);
+				"https://www.example.com/images/pasta-carbonara.jpg", "Nonveg",3);
         
         try {
         	assertTrue(recipeService.updateRecipe(recipe));

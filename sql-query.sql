@@ -5,8 +5,8 @@ DROP TABLE user;
 
 CREATE TABLE USER (
     Userid int ,
-    Username varchar(255),
-    email varchar(255),
+   email varchar(255),
+    Username  varchar(255),
     password varchar(255)
     
   
@@ -35,6 +35,8 @@ CREATE TABLE recipes (
     
 );
 select* from recipes;
+ALTER TABLE recipes
+ADD isDeleted varchar(255);
 
 select* from recipes where Category = "veg";
 select* from recipes where Category = "nonveg";

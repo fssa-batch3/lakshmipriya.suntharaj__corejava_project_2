@@ -49,7 +49,7 @@ public class RecipeDAO {
 	public List<Recipe> getAllRecipes() throws SQLException {
 		List<Recipe> recipes = new ArrayList<>();
 
-		String query = "SELECT * FROM recipes";
+		String query = "SELECT * FROM recipes WHERE isDeleted = 0 ";
 		try (Connection connection = getConnection();
 				PreparedStatement pmt = connection.prepareStatement(query);
 				ResultSet rs = pmt.executeQuery()) {

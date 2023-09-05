@@ -33,7 +33,7 @@ public class UserDAO {
 	}
 	
 	public boolean register(User user) throws SQLException {
-		String query = "INSERT INTO USER (userName ,email,password) VALUES (?,?,?)";
+		String query = "INSERT INTO USER (Username ,email,password) VALUES (?,?,?)";
 		try(
 		Connection connection = getConnection();
 		
@@ -42,13 +42,12 @@ public class UserDAO {
 		pmt.setString(2, user.getEmail());
 		pmt.setString(3, user.getPassword());
 		
-		
-		int rows = pmt.executeUpdate();
+		int rows = pmt.executeUpdate(); 
 
 		// Return successful or not 
 
 		
-		return rows == 1;
+		return rows >= 1; 
 
 	}
 	}

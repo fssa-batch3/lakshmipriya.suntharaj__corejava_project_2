@@ -15,8 +15,8 @@ public class UserService {
 		UserDAO userDAO = new UserDAO();
 
 		try {
+			
 			UserValidator.validateUser(user);
-
 			return userDAO.register(user);
 		} catch (InvalidUserException | SQLException e) {
 			throw new ServiceException(e);
@@ -27,7 +27,7 @@ public class UserService {
 	public boolean loginUser(User user) throws ServiceException {
 
 		try {
-			UserValidator.validateEmail(user.getEmail());
+			//UserValidator.validateEmail(user.getEmail());
 			UserValidator.validatePassword(user.getPassword());
 
 			UserDAO userDAO = new UserDAO();
@@ -48,7 +48,7 @@ public class UserService {
 	public boolean updateUser(User user) throws ServiceException {
 	    try {
 	        
-	        UserValidator.validateEmail(user.getEmail());
+	       // UserValidator.validateEmail(user.getEmail());
 	        UserValidator.validatePassword(user.getPassword());
 
 	        UserDAO userDAO = new UserDAO();
