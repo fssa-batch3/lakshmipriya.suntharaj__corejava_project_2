@@ -18,7 +18,7 @@ public class UserDAO {
 			return con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "1234567890");
 		} catch ( Exception e) {
 			
-			e.printStackTrace();
+			
 		}
 		return con;
 			}
@@ -32,7 +32,7 @@ public class UserDAO {
 		PreparedStatement pmt = connection.prepareStatement(query);){
 		pmt.setString(1, user.getEmail());
 		pmt.setString(2, user.getPassword());
-
+ 
 		ResultSet rs = pmt.executeQuery();
 		
 		return rs.next();
