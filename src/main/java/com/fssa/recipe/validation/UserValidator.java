@@ -8,34 +8,31 @@ import com.fssa.recipe.model.User;
 import com.fssa.recipe.validation.exception.InvalidUserException;
 
 public class UserValidator {
+	public static void main(String[] args) throws InvalidUserException {
+		User user = new User("pranaw", "mdpranaw@gmail.com", "Icodeu100%");
+
+		System.out.println(validateUser(user));
+
+	}
 
 	public static boolean validateUser(User user) throws InvalidUserException {
-		if (user != null &&
-	             validateName(user.getUsername()) &&
-				validatePassword(user.getPassword())&&
-		        validateEmail (user.getEmail())) 
-		{
-			return true;
-		} else {
-			throw new InvalidUserException("User details not valid");
-		}   
+
+		validateName(user.getUsername());
+		validateEmail(user.getEmail());
+		validatePassword(user.getPassword());
+		return true;
 	}
 
 	public static boolean validateName(String name) throws InvalidUserException {
-	    
-
-	    if (name!=null ) {
-	        return true;
-	    } else {
-	        throw new InvalidUserException("Name cannot be null");
-	    }
+		if (name == null || name.trim().isEmpty()) {
+			throw new InvalidUserException("Name cannot be null or empty");
+		}
+		return true;
 	}
 
-
 	public static boolean validatePassword(String password) throws InvalidUserException {
-		String patternString = "(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=])(?=.*[^\\s]).{8,}$";
-
-		if (Pattern.matches(patternString, password)) {
+		String regex = "^(?=.*\\d)(?=.*[a-z])(?=.*[a-zA-Z]).{8,}$";
+		if (Pattern.matches(regex, password)) {
 			return true;
 		} else {
 			throw new InvalidUserException(
@@ -44,7 +41,7 @@ public class UserValidator {
 	}
 
 	public static boolean validateEmail(String email) throws InvalidUserException {
-		String regex = "^.*@.*\\..*$";
+		String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
 		if (Pattern.matches(regex, email)) {
 			return true;
 		} else {

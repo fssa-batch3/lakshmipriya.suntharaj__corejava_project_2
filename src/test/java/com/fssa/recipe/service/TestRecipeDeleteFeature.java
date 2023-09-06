@@ -13,7 +13,7 @@ class TestRecipeDeleteFeature {
 	void testDeleteRecipeSuccess() {
 		RecipeService RecipeService = new RecipeService();
 
-		int recipeIdToDelete = 1;
+		int recipeIdToDelete = 3;
 		try {
 			assertTrue(RecipeService.deleteRecipe(recipeIdToDelete));
 			System.out.println("recipe deleted successfully");

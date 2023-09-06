@@ -8,7 +8,16 @@ public class CommandDAO {
 
 	
 	public Connection getConnection() throws SQLException {
-		return DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "1234567890");
+		Connection con = null;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			return con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "1234567890");
+		} catch (ClassNotFoundException | SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return con;
+		
 
 	}
 	

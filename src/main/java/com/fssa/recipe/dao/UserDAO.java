@@ -6,15 +6,22 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
 import com.fssa.recipe.model.User;
 
 public class UserDAO {
 
 	// connect to database
 	public Connection getConnection() throws SQLException {
-		return DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "1234567890");
-	}
+		Connection con = null;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			return con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "1234567890");
+		} catch ( Exception e) {
+			
+			e.printStackTrace();
+		}
+		return con;
+			}
 
 	// Get user from DB
 	public boolean login(User user) throws SQLException {

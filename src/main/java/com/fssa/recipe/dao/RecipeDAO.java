@@ -12,13 +12,16 @@ import com.fssa.recipe.model.Recipe;
 public class RecipeDAO {
 
 	public Connection getConnection() throws SQLException {
+		Connection con = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-
+			return con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "1234567890");
+		} catch (ClassNotFoundException | SQLException e) {
+			
 			e.printStackTrace();
 		}
-		return DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "1234567890");
+		return con;
+		
 
 	}
 //add recipe to the database
