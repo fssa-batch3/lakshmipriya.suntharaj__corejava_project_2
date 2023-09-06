@@ -12,7 +12,7 @@ public class Utilities {
 			return con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "1234567890");
 		} catch (ClassNotFoundException | SQLException e) {
 			
-			e.printStackTrace();
+			
 		}
 		return con;
 		
