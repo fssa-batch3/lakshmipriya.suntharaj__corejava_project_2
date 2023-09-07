@@ -18,6 +18,16 @@ public class RecipeDAO {
 	
 //add recipe to the database
 
+	/**
+	 * Adds a new recipe to the database.
+	 *
+	 * @param recipe The Recipe object containing the recipe's information.
+	 * @return True if the recipe was successfully added, false otherwise.
+	 * @throws SQLException If a database access error occurs.
+	 * @throws ClassNotFoundException If the database driver class is not found.
+	 */
+	
+	
 	public boolean addRecipe(Recipe recipe) throws SQLException, ClassNotFoundException {
 		int rows = 0;
 		String query = "INSERT INTO recipes (name, description, ingredients, instructions, imageUrl, Category) VALUES ( ?, ?, ?, ?, ? ,?)";
@@ -41,6 +51,15 @@ public class RecipeDAO {
 	}
 
 // list recipes 
+	
+	
+	/**
+	 * Retrieves a list of all non-deleted recipes from the database.
+	 *
+	 * @return A list of Recipe objects containing recipe information.
+	 * @throws SQLException If a database access error occurs.
+	 * @throws ClassNotFoundException If the database driver class is not found.
+	 */
 	public List<Recipe> getAllRecipes() throws SQLException, ClassNotFoundException {
 		List<Recipe> recipes = new ArrayList<>();
 
@@ -66,6 +85,17 @@ public class RecipeDAO {
 	}
 
 	// Update recipe in DB
+	
+	/**
+	 * Retrieves a list of all non-deleted recipes from the database.
+	 *
+	 * @return A list of Recipe objects containing recipe information.
+	 * @throws SQLException If a database access error occurs.
+	 * @throws ClassNotFoundException If the database driver class is not found.
+	 */
+	
+	
+	
 	public boolean updateRecipe(Recipe recipe) throws SQLException, ClassNotFoundException {
 		String query = "UPDATE recipes SET name = ?, description = ?, ingredients = ?, instructions = ?, "
 				+ "imageUrl = ? ,"+ " Category = ? WHERE RecipeID = ?";
@@ -87,6 +117,17 @@ public class RecipeDAO {
 	}
 
 	// Delete recipe from DB
+	
+	/**
+	 * Marks a recipe as deleted in the database.
+	 *
+	 * @param recipeId The ID of the recipe to be marked as deleted.
+	 * @return True if the recipe was successfully marked as deleted, false otherwise.
+	 * @throws SQLException If a database access error occurs.
+	 * @throws ClassNotFoundException If the database driver class is not found.
+	 */
+	
+	
 	public boolean deleteRecipe(int recipeId) throws SQLException, ClassNotFoundException {
 		String query = "UPDATE  recipes SET isDeleted = ? WHERE RecipeId = ?";
 		try (Connection connection = Utilities.getConnection();
