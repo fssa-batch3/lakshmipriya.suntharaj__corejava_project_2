@@ -99,7 +99,7 @@ public class RecipeDAO {
 		String query = "UPDATE  recipes SET isDeleted = ? WHERE RecipeId = ?";
 		try (Connection connection = getConnection(); 
 		    PreparedStatement pmt = connection.prepareStatement(query)) {
-			pmt.setBoolean(1, true); // Set isDeleted to true to mark the design as deleted
+			pmt.setBoolean(1, true);
 			pmt.setInt(2, recipeId);
 			int rows = pmt.executeUpdate();
 			return rows == 1;
