@@ -51,9 +51,6 @@ public class UserDAO {
 		
 		int rows = pmt.executeUpdate(); 
 
-		// Return successful or not 
-
-		
 		return rows >= 1; 
 
 	}
