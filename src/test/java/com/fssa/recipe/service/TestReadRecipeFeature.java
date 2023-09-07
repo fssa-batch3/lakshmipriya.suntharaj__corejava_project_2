@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
-public class TestReadRecipeFeature {
+ class TestReadRecipeFeature {
 
     @Test
     void testGetAllRecipes() throws ServiceException {
