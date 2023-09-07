@@ -11,7 +11,7 @@ import com.fssa.recipe.validation.exception.InvalidUserException;
 
 public class UserService {
 
-	public boolean registerUser(User user) throws ServiceException {
+	public boolean registerUser(User user) throws ServiceException, ClassNotFoundException {
 		UserDAO userDAO = new UserDAO();
 
 		try {

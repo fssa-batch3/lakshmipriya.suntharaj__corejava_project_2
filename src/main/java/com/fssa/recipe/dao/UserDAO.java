@@ -1,33 +1,21 @@
 package com.fssa.recipe.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.fssa.recipe.model.User;
+import com.fssa.recipe.util.Utilities;
 
 public class UserDAO {
 
-	// connect to database
-	public Connection getConnection() throws SQLException {
-		Connection con = null;
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			return con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "1234567890");
-		} catch ( Exception e) {
-			
-			
-		}
-		return con;
-			}
-
+	
 	// Get user from DB
-	public boolean login(User user) throws SQLException {
+	public boolean login(User user) throws SQLException, ClassNotFoundException {
 		String query = "SELECT * FROM USER WHERE email = ? AND password = ?";
 		
-		try (Connection connection = getConnection();
+		try (Connection connection = Utilities.getConnection();
 		
 		PreparedStatement pmt = connection.prepareStatement(query);){
 		pmt.setString(1, user.getEmail());
@@ -39,10 +27,10 @@ public class UserDAO {
 	} 
 	}
 	
-	public boolean register(User user) throws SQLException {
+	public boolean register(User user) throws SQLException, ClassNotFoundException {
 		String query = "INSERT INTO USER (Username ,email,password) VALUES (?,?,?)";
 		try(
-		Connection connection = getConnection();
+		Connection connection = Utilities.getConnection(); 
 		
 		PreparedStatement pmt = connection.prepareStatement(query);){
 		pmt.setString(1, user.getUsername());
@@ -57,11 +45,11 @@ public class UserDAO {
 	}
 	
 // update user 
-	public boolean updateUser(User user) throws SQLException {
+	public boolean updateUser(User user) throws SQLException, ClassNotFoundException {
 		
 		String query = "UPDATE USER SET userName = ? WHERE email = ?";
 		try(
-	    Connection connection = getConnection();
+	    Connection connection = Utilities.getConnection(); 
 	    
 	    PreparedStatement pmt = connection.prepareStatement(query);){
 	    pmt.setString(1, user.getEmail());

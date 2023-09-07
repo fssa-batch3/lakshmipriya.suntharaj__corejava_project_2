@@ -8,28 +8,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import com.fssa.recipe.model.Recipe;
+import com.fssa.recipe.util.Utilities;
 
 public class RecipeDAO {
 
-	public Connection getConnection() throws SQLException {
-		Connection con = null;
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			return con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "1234567890");
-		} catch (ClassNotFoundException | SQLException e) {
-			
-			
-		}
-		return con;
-		
-
-	} 
+	
+	
+	
+	
 //add recipe to the database
 
-	public boolean addRecipe(Recipe recipe) throws SQLException {
+	public boolean addRecipe(Recipe recipe) throws SQLException, ClassNotFoundException {
 		int rows = 0;
 		String query = "INSERT INTO recipes (name, description, ingredients, instructions, imageUrl, Category) VALUES ( ?, ?, ?, ?, ? ,?)";
-		try (Connection connection = getConnection();
+		try (Connection connection = Utilities.getConnection(); 
 
 				PreparedStatement pmt = connection.prepareStatement(query))
 
@@ -49,11 +41,11 @@ public class RecipeDAO {
 	}
 
 // list recipes 
-	public List<Recipe> getAllRecipes() throws SQLException {
+	public List<Recipe> getAllRecipes() throws SQLException, ClassNotFoundException {
 		List<Recipe> recipes = new ArrayList<>();
 
 		String query = "SELECT * FROM recipes WHERE isDeleted = 0 ";
-		try (Connection connection = getConnection();
+		try (Connection connection = Utilities.getConnection(); 
 				PreparedStatement pmt = connection.prepareStatement(query);
 				ResultSet rs = pmt.executeQuery()) {
 
@@ -74,10 +66,10 @@ public class RecipeDAO {
 	}
 
 	// Update recipe in DB
-	public boolean updateRecipe(Recipe recipe) throws SQLException {
+	public boolean updateRecipe(Recipe recipe) throws SQLException, ClassNotFoundException {
 		String query = "UPDATE recipes SET name = ?, description = ?, ingredients = ?, instructions = ?, "
 				+ "imageUrl = ? ,"+ " Category = ? WHERE RecipeID = ?";
-		try (Connection connection = getConnection();
+		try (Connection connection = Utilities.getConnection(); 
 
 				PreparedStatement pmt = connection.prepareStatement(query);) {
 			pmt.setString(1, recipe.getName());
@@ -95,9 +87,9 @@ public class RecipeDAO {
 	}
 
 	// Delete recipe from DB
-	public boolean deleteRecipe(int recipeId) throws SQLException {
+	public boolean deleteRecipe(int recipeId) throws SQLException, ClassNotFoundException {
 		String query = "UPDATE  recipes SET isDeleted = ? WHERE RecipeId = ?";
-		try (Connection connection = getConnection(); 
+		try (Connection connection = Utilities.getConnection();
 		    PreparedStatement pmt = connection.prepareStatement(query)) {
 			pmt.setBoolean(1, true);
 			pmt.setInt(2, recipeId);

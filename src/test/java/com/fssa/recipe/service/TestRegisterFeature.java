@@ -11,7 +11,7 @@ import com.fssa.recipe.service.exception.ServiceException;
 
 class TestRegisterFeature {
 @Test
-	 void testRegisterSuccess() {
+	 void testRegisterSuccess() throws ClassNotFoundException {
 			User user1 = new User("ajmal","ajmal@gmail.com","Dahrun@456");
 			UserService  UserService = new UserService();
 			try {
@@ -26,7 +26,7 @@ class TestRegisterFeature {
 
 
 	@Test
-	void testUserNull() {
+	void testUserNull() throws ClassNotFoundException {
 		UserService userService = new UserService();
 		User user1 = null;
 		try {
@@ -38,7 +38,7 @@ class TestRegisterFeature {
 		}
 	}
 
-	void testDuplicateUserRegistration() {
+	void testDuplicateUserRegistration() throws ClassNotFoundException {
 		UserService userService = new UserService();
 		User user1 = new User("Vinit", "vinit.gore@ctr.freshworks.com", "Zxcvbnm@1");
 		User user2 = new User("Vinit", "vinit.gore@ctr.freshworks.com", "Zxcvbnm@1");

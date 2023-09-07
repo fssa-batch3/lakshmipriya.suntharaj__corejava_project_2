@@ -13,7 +13,7 @@ import com.fssa.recipe.validation.exception.InValidRecipeException;
 public class RecipeService {
 
    
-	public boolean addRecipe(Recipe recipe) throws ServiceException {
+	public boolean addRecipe(Recipe recipe) throws ServiceException, ClassNotFoundException {
         try {
             RecipeValidator.validateRecipe(recipe);
             RecipeDAO recipeDAO = new RecipeDAO();
@@ -24,7 +24,7 @@ public class RecipeService {
     }
 
   
-    public List<Recipe> getAllRecipes() throws ServiceException {
+    public List<Recipe> getAllRecipes() throws ServiceException, ClassNotFoundException {
         try {
             RecipeDAO recipeDAO = new RecipeDAO();
             return recipeDAO.getAllRecipes();
@@ -34,7 +34,7 @@ public class RecipeService {
     }
 
  
-    public boolean updateRecipe(Recipe recipe) throws ServiceException {
+    public boolean updateRecipe(Recipe recipe) throws ServiceException, ClassNotFoundException {
         try {
             RecipeValidator.validateRecipe(recipe); // Use the instance you created
             RecipeDAO recipeDAO = new RecipeDAO();
@@ -45,7 +45,7 @@ public class RecipeService {
     } 
 
   
-    public boolean deleteRecipe(int recipeId) throws ServiceException {
+    public boolean deleteRecipe(int recipeId) throws ServiceException, ClassNotFoundException {
         try {
             RecipeDAO recipeDAO = new RecipeDAO();
             return recipeDAO.deleteRecipe(recipeId);

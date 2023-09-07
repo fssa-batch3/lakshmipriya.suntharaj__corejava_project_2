@@ -10,7 +10,7 @@ import com.fssa.recipe.service.exception.ServiceException;
 
 class TestAddRecipeFeature {
 	@Test
-	void testAddRecipeSuccess() {
+	void testAddRecipeSuccess() throws ClassNotFoundException {
 		RecipeService recipeService = new RecipeService();
 		Recipe recipe = new Recipe("curd", "Delicious pasta dish with bacon and cream sauce.",
 				"Pasta, Bacon, Eggs, Parmesan cheese, Cream, Garlic, Black pepper, Salt",
@@ -27,7 +27,7 @@ class TestAddRecipeFeature {
 	}
 
 	@Test
-	void testAddRecipeMissingName() {
+	void testAddRecipeMissingName() throws ClassNotFoundException {
 		RecipeService recipeService = new RecipeService();
 		Recipe recipe = new Recipe(null, "Description", "Ingredients", "Instructions", "ImageUrl", "veg");
 
@@ -41,7 +41,7 @@ class TestAddRecipeFeature {
 	}
 
 	@Test
-	void testAddRecipeMissingDescription() {
+	void testAddRecipeMissingDescription() throws ClassNotFoundException {
 		RecipeService recipeService = new RecipeService();
 		Recipe recipe = new Recipe("RecipeName", null, "Ingredients", "Instructions", "ImageUrl", "snacks");
 
@@ -55,7 +55,7 @@ class TestAddRecipeFeature {
 	}
 
 	@Test
-	void testAddRecipeInvalidIngredients() {
+	void testAddRecipeInvalidIngredients() throws ClassNotFoundException {
 		RecipeService recipeService = new RecipeService();
 		Recipe recipe = new Recipe("RecipeName", "Description", null, "Instructions", "ImageUrl", "nonveg");
 

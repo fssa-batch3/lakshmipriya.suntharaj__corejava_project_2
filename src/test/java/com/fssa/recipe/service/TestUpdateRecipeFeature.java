@@ -12,7 +12,7 @@ import com.fssa.recipe.service.exception.ServiceException;
  class TestUpdateRecipeFeature {
 
     @Test
-    void testUpdateRecipeSuccess() {
+    void testUpdateRecipeSuccess() throws ClassNotFoundException {
         RecipeService recipeService = new RecipeService();
         Recipe recipe = new Recipe("pasta, " , "Chicken gravy is an authentic indian recipe made with lot of indian spices and masala.",
 				"3/4 kg Chicken, oil, Cinnamon Stick,Cloves, Cardanom podes, Garlic, Black pepper, Salt",
@@ -29,7 +29,7 @@ import com.fssa.recipe.service.exception.ServiceException;
     }
 
     @Test
-     void testUpdateRecipeInvalidData() {
+     void testUpdateRecipeInvalidData() throws ClassNotFoundException {
         RecipeService recipeService = new RecipeService();
         Recipe recipe = new Recipe(null, "Updated description",
                 "Updated ingredients", "Updated instructions", "updated_image_url");

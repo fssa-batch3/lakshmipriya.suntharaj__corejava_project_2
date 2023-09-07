@@ -10,7 +10,7 @@ import com.fssa.recipe.service.exception.ServiceException;
 class TestRecipeDeleteFeature {
 
 	@Test
-	void testDeleteRecipeSuccess() {
+	void testDeleteRecipeSuccess() throws ClassNotFoundException {
 		RecipeService RecipeService = new RecipeService();
 
 		int recipeIdToDelete = 3;
