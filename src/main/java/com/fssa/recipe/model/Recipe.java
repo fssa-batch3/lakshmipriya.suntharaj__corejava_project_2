@@ -126,14 +126,6 @@ public class Recipe {
 	
 
 
-	
-
-	public Recipe() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-
 	@Override
 	public String toString() {
 		return "Recipe [RecipeId=" + recipeId + ", name=" + name + ", description=" + description + ", ingredients="
