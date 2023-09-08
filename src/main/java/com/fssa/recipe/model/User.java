@@ -6,7 +6,23 @@ public class User {
 	private String email;
 	private String Username;
 	private String password;
-	
+	private String confirmpassword;
+
+	public User(String email, String username, String password, String confirmpassword) {
+		super();
+		this.email = email;
+		Username = username;
+		this.password = password;
+		this.confirmpassword = confirmpassword;
+	}
+
+	public String getConfirmpassword() {
+		return confirmpassword;
+	}
+
+	public void setConfirmpassword(String confirmpassword) {
+		this.confirmpassword = confirmpassword;
+	}
 
 	public User( String username, String email, String password) {
 		super();

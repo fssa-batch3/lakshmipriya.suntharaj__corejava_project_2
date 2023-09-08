@@ -31,7 +31,7 @@ public class RecipeValidator {
 	    }
 
 //	    if (!validateCategory(recipe.getCategory())) {
-//	        throw new InValidRecipeException("Category is not valid");
+//	        throw new InValidRecipxception("Category is not valid");
 //	    }
 
 	    return true;

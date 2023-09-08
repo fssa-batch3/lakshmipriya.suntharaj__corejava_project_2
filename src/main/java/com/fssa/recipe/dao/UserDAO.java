@@ -46,7 +46,7 @@ public class UserDAO {
 	
 	
 	public boolean register(User user) throws SQLException, ClassNotFoundException {
-		String query = "INSERT INTO USER (Username ,email,password) VALUES (?,?,?)";
+		String query = "INSERT INTO USER (Username ,email,password,confirmpassword) VALUES (?,?,?,?)";
 		try(
 		Connection connection = Utilities.getConnection(); 
 		
@@ -54,6 +54,7 @@ public class UserDAO {
 		pmt.setString(1, user.getUsername());
 		pmt.setString(2, user.getEmail());
 		pmt.setString(3, user.getPassword());
+		pmt.setString(4, user.getConfirmpassword());
 		
 		int rows = pmt.executeUpdate(); 
 
