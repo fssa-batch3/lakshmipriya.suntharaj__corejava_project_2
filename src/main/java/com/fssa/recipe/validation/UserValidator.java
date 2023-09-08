@@ -1,7 +1,5 @@
 
 package com.fssa.recipe.validation;
-
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.fssa.recipe.model.User;
