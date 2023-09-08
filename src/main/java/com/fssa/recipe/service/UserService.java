@@ -27,7 +27,7 @@ public class UserService {
 	public boolean loginUser(User user) throws ServiceException {
 
 		try {
-			//UserValidator.validateEmail(user.getEmail());
+			UserValidator.validateEmail(user.getEmail());
 			UserValidator.validatePassword(user.getPassword());
 
 			UserDAO userDAO = new UserDAO();
@@ -48,7 +48,7 @@ public class UserService {
 	public boolean updateUser(User user) throws ServiceException {
 	    try {
 	        
-	       // UserValidator.validateEmail(user.getEmail());
+	       UserValidator.validateEmail(user.getEmail());
 	        UserValidator.validatePassword(user.getPassword());
 
 	        UserDAO userDAO = new UserDAO();
