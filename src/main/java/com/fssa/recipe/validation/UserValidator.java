@@ -6,12 +6,7 @@ import com.fssa.recipe.model.User;
 import com.fssa.recipe.validation.exception.InvalidUserException;
 
 public class UserValidator {
-	public static void main(String[] args) throws InvalidUserException {
-		User user = new User("pranaw", "mdpranaw@gmail.com", "Icodeu100%");
-
-		System.out.println(validateUser(user));
-
-	}
+	
 
 	public static boolean validateUser(User user) throws InvalidUserException {
 

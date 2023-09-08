@@ -6,35 +6,13 @@ import com.fssa.recipe.validation.exception.InValidRecipeException;
 public class RecipeValidator {
 
 	public static boolean validateRecipe(Recipe recipe) throws InValidRecipeException {
-	    if (recipe == null) {
-	        throw new InValidRecipeException("Recipe is null");
-	    }
-
-	    if (!validateName(recipe.getName())) {
-	        throw new InValidRecipeException("Name is not valid");
-	    }
-
-	    if (!validateDescription(recipe.getDescription())) {
-	        throw new InValidRecipeException("Description is not valid");
-	    }
-
-	    if (!validateIngredients(recipe.getIngredients())) {
-	        throw new InValidRecipeException("Ingredients are not valid");
-	    }
-
-	    if (!validateInstructions(recipe.getInstructions())) {
-	        throw new InValidRecipeException("Instructions are not valid");
-	    }
-
-	    if (!validateImageUrl(recipe.getImageUrl())) {
-	        throw new InValidRecipeException("Image URL is not valid");
-	    }
-
-//	    if (!validateCategory(recipe.getCategory())) {
-//	        throw new InValidRecipxception("Category is not valid");
-//	    }
-
-	    return true;
+		validateName(recipe.getName());
+		validateDescription(recipe.getDescription());
+		validateIngredients(recipe.getIngredients());
+		validateInstructions(recipe.getCategory());
+		validateImageUrl(recipe.getImageUrl());
+		return true;
+	   
 	}
     public static boolean validateName(String name) throws InValidRecipeException {
         if (name == null || name.trim().isEmpty()) {
@@ -80,18 +58,5 @@ public class RecipeValidator {
         return true;
     }
     
-    public static void validateCategory(String category) throws InValidRecipeException {
-        if (category == null || category.trim().isEmpty()) {
-            throw new InValidRecipeException("Invalid Category");
-        } else if (category.equals("veg")) {
-            System.out.println("veg Category");
-        } else if (category.equals("nonveg")) {
-            System.out.println("nonveg Category");
-        } else if (category.equals("snacks")) {
-            System.out.println("snacks Category");
-        } else {
-            throw new InValidRecipeException("Unknown Category");
-        }
-		
-    }
+   
 }
