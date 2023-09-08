@@ -5,7 +5,7 @@ public class User {
 
 	private String email;
 	private String Username;
-	private String password;
+String password;
 	private String confirmpassword;
 
 	public User(String email, String username, String password, String confirmpassword) {

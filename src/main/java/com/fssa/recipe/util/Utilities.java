@@ -33,12 +33,9 @@ public class Utilities {
 	        throw e;
 	    } finally {
 	        
-	        if (con != null) {
-	            try {
+	       
 	                con.close();
-	            } catch (SQLException e) {
-	            	throw e;
-	            }
+	             
 	        }
 	    }
 	}

@@ -2,6 +2,7 @@
 package com.fssa.recipe.validation;
 import java.util.regex.Pattern;
 
+import com.fssa.recipe.model.Recipe;
 import com.fssa.recipe.model.User;
 import com.fssa.recipe.validation.exception.InvalidUserException;
 
@@ -13,6 +14,7 @@ public class UserValidator {
 		validateName(user.getUsername());
 		validateEmail(user.getEmail());
 		validatePassword(user.getPassword());
+		
 		return true;
 	}
 
@@ -33,6 +35,8 @@ public class UserValidator {
 		}
 	}
 
+	
+	
 	public static boolean validateEmail(String email) throws InvalidUserException {
 		String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
 		if (Pattern.matches(regex, email)) {
