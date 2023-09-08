@@ -2,7 +2,7 @@
 package com.fssa.recipe.validation;
 import java.util.regex.Pattern;
 
-import com.fssa.recipe.model.Recipe;
+
 import com.fssa.recipe.model.User;
 import com.fssa.recipe.validation.exception.InvalidUserException;
 
