@@ -4,14 +4,14 @@ package com.fssa.recipe.model;
 public class User {
 
 	private String email;
-	private String Username;
-String password;
+	private String UserName;
+	private String password;
 	private String confirmpassword;
 
 	public User(String email, String username, String password, String confirmpassword) {
 		super();
 		this.email = email;
-		Username = username;
+		UserName = username;
 		this.password = password;
 		this.confirmpassword = confirmpassword;
 	}
@@ -27,7 +27,7 @@ String password;
 	public User( String username, String email, String password) {
 		super();
 		this.email = email;
-		this.Username = username;
+		this.UserName = username;
 		this.password = password;
 		
 	}
@@ -44,7 +44,7 @@ String password;
 	}
 
 	public void setUsername(String username) {
-		this.Username = username;
+		this.UserName = username;
 	}
 
 	public void setPassword(String password) {
@@ -56,7 +56,7 @@ String password;
 	}
  
 	public String getUsername() {
-		return Username;
+		return UserName;
 	}
 
 	public String getPassword() {
@@ -65,7 +65,7 @@ String password;
 
 	@Override
 	public String toString() {
-		return "User [email=" + email + ", username=" + Username + ", password=" + password + "]";
+		return "User [email=" + email + ", username=" + UserName + ", password=" + password + "]";
 	}
 
 }
