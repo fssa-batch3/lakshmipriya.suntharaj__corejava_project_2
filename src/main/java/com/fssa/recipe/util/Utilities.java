@@ -37,7 +37,7 @@ public class Utilities {
 	            try {
 	                con.close();
 	            } catch (SQLException e) {
-	               
+	            	throw e;
 	            }
 	        }
 	    }
