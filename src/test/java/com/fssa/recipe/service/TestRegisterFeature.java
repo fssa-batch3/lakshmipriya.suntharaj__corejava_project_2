@@ -12,7 +12,7 @@ import com.fssa.recipe.service.exception.ServiceException;
 class TestRegisterFeature {
 @Test
 	 void testRegisterSuccess() throws ClassNotFoundException {
-			User user1 = new User("ajmal","ajmal@gmail.com","Dahrun@456");
+			User user1 = new User( "ajmal", "karthika781@gmail.com","Dahrun@456");
 			UserService  UserService = new UserService();
 			try {
 				assertTrue(UserService.registerUser(user1)); 

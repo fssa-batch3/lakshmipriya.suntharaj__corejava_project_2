@@ -5,8 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.fssa.recipe.dao.exception.DAOException;
 import com.fssa.recipe.model.User;
+
 import com.fssa.recipe.util.Utilities;
+
+
+
 
 public class UserDAO {
 
@@ -16,10 +21,11 @@ public class UserDAO {
 	 * @param user The User object containing the email and password for authentication.
 	 * @return True if the user is authenticated, false otherwise.
 	 * @throws SQLException         If a database access error occurs.
+	 * @throws DAOException 
 	 * @throws ClassNotFoundException If the required database driver class is not found.
 	 */
 	// Get user from DB
-	public boolean login(User user) throws SQLException, ClassNotFoundException {
+	public boolean login(User user) throws  DAOException {
 		String query = "SELECT * FROM USER WHERE email = ? AND password = ?";
 		
 		try (Connection connection = Utilities.getConnection();
@@ -30,8 +36,11 @@ public class UserDAO {
  
 		ResultSet rs = pmt.executeQuery();
 		
-		return rs.next();
-	} 
+		return rs.next(); 
+	}
+		catch (SQLException | ClassNotFoundException e) {
+	        throw new DAOException("Error while authenticating the user: " + e.getMessage());
+	    }
 	}
 	
 	
@@ -45,8 +54,8 @@ public class UserDAO {
 	 */
 	
 	
-	public boolean register(User user) throws SQLException, ClassNotFoundException {
-		String query = "INSERT INTO USER (Username ,email,password,confirmpassword) VALUES (?,?,?,?)";
+	public boolean register(User user) throws DAOException, ClassNotFoundException {
+		String query = "INSERT INTO USER (Username ,email,password) VALUES (?,?,?)";
 		try(
 		Connection connection = Utilities.getConnection(); 
 		
@@ -54,13 +63,14 @@ public class UserDAO {
 		pmt.setString(1, user.getUsername());
 		pmt.setString(2, user.getEmail());
 		pmt.setString(3, user.getPassword());
-		pmt.setString(4, user.getConfirmpassword());
-		
+
 		int rows = pmt.executeUpdate(); 
 
 		return rows >= 1; 
 
-	}
+	} catch (SQLException e) {
+        throw new DAOException("Error while registering the user: " + e.getMessage());
+        }
 	}
 	
 // update user 

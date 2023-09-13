@@ -26,20 +26,14 @@ public class Utilities {
 	        con = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 	        
 	        return con;
-	    } catch (ClassNotFoundException e) {
-	        	        throw e;
 	    } catch (SQLException e) {
-	    
-	        throw e;
-	    } finally {
-	        
-	       
-	                con.close();
-	             
-	        }
-	    }
+			throw new SQLException("Unable to connect to the database");
+		} catch (ClassNotFoundException e) {
+			throw new ClassNotFoundException("Database driver class not found");
+		}
+	}
 	}
 	
 	
 	
-}
+

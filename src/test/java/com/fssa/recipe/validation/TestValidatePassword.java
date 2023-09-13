@@ -15,7 +15,7 @@ import com.fssa.recipe.validation.exception.InvalidUserException;
 	 void testValidPassword() { 
 
 		try {
-			assertTrue(UserValidator.validatePassword("Password@123"));
+			assertTrue(UserValidator.validatePassword("Password@123","Password@123"));
 		} catch (InvalidUserException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -26,7 +26,7 @@ import com.fssa.recipe.validation.exception.InvalidUserException;
 	@Test
 	 void testInvalidPasswordWithoutSpecialCharacters() {
 		try {
-			assertFalse(UserValidator.validatePassword("Password123"));
+			assertFalse(UserValidator.validatePassword("Password123","Password123"));
 		} catch (InvalidUserException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -37,7 +37,7 @@ import com.fssa.recipe.validation.exception.InvalidUserException;
 	@Test
 	 void testInvalidPasswordWithoutNumbers() {
 		try {
-			assertFalse(UserValidator.validatePassword("Password@"));
+			assertFalse(UserValidator.validatePassword("Password@","Password@"));
 		} catch (InvalidUserException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,7 +48,7 @@ import com.fssa.recipe.validation.exception.InvalidUserException;
 	@Test
  void testInvalidPasswordWithoutCapitalLetters() {
 		try {
-			assertFalse(UserValidator.validatePassword("password123"));
+			assertFalse(UserValidator.validatePassword("password123","Password@"));
 		} catch (InvalidUserException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -58,7 +58,7 @@ import com.fssa.recipe.validation.exception.InvalidUserException;
 	@Test
 	 void testInvalidPasswordWithoutSmallLetters() {
 		try {
-			assertFalse(UserValidator.validatePassword("PASSWORD@123"));
+			assertFalse(UserValidator.validatePassword("PASSWORD@123","Password@"));
 		} catch (InvalidUserException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -68,7 +68,7 @@ import com.fssa.recipe.validation.exception.InvalidUserException;
 	@Test
 void testInvalidPasswordShorterLength() {
 		try {
-			assertFalse(UserValidator.validatePassword("Pas@123"));
+			assertFalse(UserValidator.validatePassword("Pas@123","Password@"));
 		} catch (InvalidUserException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

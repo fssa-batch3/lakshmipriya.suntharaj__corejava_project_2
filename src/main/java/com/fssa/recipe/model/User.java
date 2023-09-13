@@ -8,13 +8,7 @@ public class User {
 	private String password;
 	private String confirmpassword;
 
-	public User(String email, String username, String password, String confirmpassword) {
-		super();
-		this.email = email;
-		userName = username;
-		this.password = password;
-		this.confirmpassword = confirmpassword;
-	}
+
 
 	public String getConfirmpassword() {
 		return confirmpassword;
