@@ -2,13 +2,29 @@ package com.fssa.recipe.model;
 
 
 public class User {
+    private int Userid;
+
 
 	private String email;
 	private String userName;
 	private String password;
 	private String confirmpassword;
+	private boolean loggedemail;
+	public int getUserid() {
+		return Userid;
+	}
 
+	public void setUserid(int userid) {
+		Userid = userid;
+	}
 
+	public boolean isLoggedemail() {
+		return loggedemail;
+	}
+
+	public void setLoggedemail(boolean loggedemail) {
+		this.loggedemail = loggedemail;
+	}
 
 	public String getConfirmpassword() {
 		return confirmpassword;
@@ -33,6 +49,10 @@ public class User {
 	}
 
 	
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}

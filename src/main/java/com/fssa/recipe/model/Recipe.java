@@ -1,6 +1,7 @@
 package com.fssa.recipe.model;
 
 public class Recipe {
+
 	private String name;
     private String description;
     private String ingredients;
@@ -8,8 +9,21 @@ public class Recipe {
     private String imageUrl;
     private String category;
     private boolean isDeleted;
-	public Recipe(String name, String description, String ingredients, String instructions, String imageUrl,
-			String category, int recipeId) {
+    private int Userid;
+    private int recipeId;
+    
+	public int getUserid() {
+		return Userid;
+	}
+
+
+	public void setUserid(int userid) {
+		Userid = userid;
+	}
+
+
+	public Recipe(int recipeId,String name, String description, String ingredients, String instructions, String imageUrl,
+			String category ) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -23,7 +37,7 @@ public class Recipe {
 // update recipe 
 	
 
-	private int recipeId;
+	
 	
 	
 	public Recipe(int recipeId, String name, String description, String ingredients, String instructions,
@@ -40,11 +54,19 @@ public class Recipe {
 	}
 	
     
-    public int getRecipeId() {
+    
+
+
+	public int getRecipeId() {
 		return recipeId;
 	}
 	
     
+	public void setRecipeId(int recipeId) {
+		this.recipeId = recipeId;
+	}
+
+
 	public String getCategory() {
 		return category;
 	}
@@ -114,17 +136,36 @@ public class Recipe {
 		
 	}
 	public Recipe(String name, String description, String ingredients, String instructions, String imageUrl,
-			String category) {
+			String category,int Userid) {
 		super();
+		
 		this.name = name;
 		this.description = description;
 		this.ingredients = ingredients;
 		this.instructions = instructions;
 		this.imageUrl = imageUrl;
 		this.category = category;
+		this.Userid = Userid;
 	}
 	
 
+
+	public Recipe() {
+		
+	}
+
+	
+	
+
+	public Recipe(String name, String description, String ingredients, String instructions, String imageUrl, String category) {
+	    // Initialize the fields with the provided arguments
+	    this.name = name;
+	    this.description = description;
+	    this.ingredients = ingredients;
+	    this.instructions = instructions;
+	    this.imageUrl = imageUrl;
+	    this.category = category;
+	}
 
 	@Override
 	public String toString() {
@@ -132,5 +173,8 @@ public class Recipe {
 				+ ingredients + ", instructions=" + instructions + ", imageUrl=" + imageUrl 
 				+ ", isDeleted=" + isDeleted + "]";
 	}
+
+
+	
 	
 }

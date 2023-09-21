@@ -13,7 +13,7 @@ class TestRecipeDeleteFeature {
 	void testDeleteRecipeSuccess() throws ClassNotFoundException {
 		RecipeService RecipeService = new RecipeService();
 
-		int recipeIdToDelete = 3;
+		int recipeIdToDelete = 25;
 		try {
 			assertTrue(RecipeService.deleteRecipe(recipeIdToDelete));
 			System.out.println("recipe deleted successfully");

@@ -25,11 +25,11 @@ class TestAddRecipeFeature {
 			fail();
 		}
 	}
-
+	
 	@Test
 	void testAddRecipeMissingName() throws ClassNotFoundException {
 		RecipeService recipeService = new RecipeService();
-		Recipe recipe = new Recipe(null, "Description", "Ingredients", "Instructions", "ImageUrl", "veg");
+		Recipe recipe = new Recipe(0, null, "Description", "Ingredients", "Instructions", "ImageUrl", "veg");
 
 		try {
 			recipeService.addRecipe(recipe);
@@ -43,7 +43,7 @@ class TestAddRecipeFeature {
 	@Test
 	void testAddRecipeMissingDescription() throws ClassNotFoundException {
 		RecipeService recipeService = new RecipeService();
-		Recipe recipe = new Recipe("RecipeName", null, "Ingredients", "Instructions", "ImageUrl", "snacks");
+		Recipe recipe = new Recipe(0, "RecipeName", null, "Ingredients", "Instructions", "ImageUrl", "snacks");
 
 		try {
 			assertFalse(recipeService.addRecipe(recipe));
@@ -57,7 +57,7 @@ class TestAddRecipeFeature {
 	@Test
 	void testAddRecipeInvalidIngredients() throws ClassNotFoundException {
 		RecipeService recipeService = new RecipeService();
-		Recipe recipe = new Recipe("RecipeName", "Description", null, "Instructions", "ImageUrl", "nonveg");
+		Recipe recipe = new Recipe(0, "RecipeName", "Description", null, "Instructions", "ImageUrl", "nonveg");
 
 		try {
 			assertFalse(recipeService.addRecipe(recipe));

@@ -1,12 +1,13 @@
 package com.fssa.recipe.dao;
 
-import java.util.ArrayList;
 import java.sql.Connection;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+
+import com.fssa.recipe.dao.exception.DAOException;
 import com.fssa.recipe.model.Recipe;
 import com.fssa.recipe.util.Utilities;
 
@@ -30,7 +31,7 @@ public class RecipeDAO {
 	
 	public boolean addRecipe(Recipe recipe) throws SQLException, ClassNotFoundException {
 		int rows = 0;
-		String query = "INSERT INTO recipes (name, description, ingredients, instructions, imageUrl, Category) VALUES ( ?, ?, ?, ?, ? ,?)";
+		String query = "INSERT INTO recipes (name, description, ingredients, instructions, imageUrl, Category,Userid) VALUES ( ?, ?, ?, ?, ? ,?,?)";
 		try (Connection connection = Utilities.getConnection(); 
 
 				PreparedStatement pmt = connection.prepareStatement(query))
@@ -43,7 +44,8 @@ public class RecipeDAO {
 			pmt.setString(4, recipe.getInstructions());
 			pmt.setString(5, recipe.getImageUrl());
 			pmt.setString(6, recipe.getCategory());
-
+			pmt.setInt(7, recipe.getUserid());
+           
 			rows = pmt.executeUpdate();
 		}
 
@@ -69,14 +71,15 @@ public class RecipeDAO {
 				ResultSet rs = pmt.executeQuery()) {
 
 			while (rs.next()) {
-
+				System.out.println(rs.getInt("recipeId"));
+                int recipeId = rs.getInt("recipeId");
 				String name = rs.getString("name");
 				String description = rs.getString("description");
 				String ingredients = rs.getString("ingredients");
 				String instructions = rs.getString("instructions");
 				String imageUrl = rs.getString("imageUrl");
 				String catagory = rs.getString("Category");
-				Recipe recipe = new Recipe(name, description, ingredients, instructions, imageUrl, catagory);
+				Recipe recipe = new Recipe(recipeId,name, description, ingredients, instructions, imageUrl, catagory);
 				recipes.add(recipe);
 			}
 		}
@@ -95,10 +98,47 @@ public class RecipeDAO {
 	 */
 	
 	
+	public   Recipe findRecipeById(int recipeId) throws DAOException {
+		final String SELECTQUERY = "SELECT * FROM recipes WHERE recipeId = ?";
+
+		
+		try (Connection connection = Utilities.getConnection();
+				PreparedStatement pmt = connection.prepareStatement(SELECTQUERY)) {
+
+			pmt.setInt(1, recipeId);
+
+			try (ResultSet rs = pmt.executeQuery()) {
+				Recipe recipe = new Recipe();
+				if (rs.next()) {
+					
+					recipe.setRecipeId(rs.getInt("recipeId"));
+					recipe.setName(rs.getString("name"));
+					recipe.setDescription(rs.getString("description"));
+					recipe.setIngredients(rs.getString("ingredients"));
+					recipe.setInstructions(rs.getString("instructions"));
+					recipe.setImageUrl(rs.getString("imageUrl"));
+					recipe.setCategory(rs.getString("category"));
+					return recipe;
+				}
+				else {
+					throw new DAOException("Recipie with"+recipeId+"id is not found ");
+				}
+				
+			}
+
+		} catch (SQLException | ClassNotFoundException e) {
+			throw new DAOException(e);
+		}
+		
+
+		
+	}
+	
+	
 	
 	public boolean updateRecipe(Recipe recipe) throws SQLException, ClassNotFoundException {
 		String query = "UPDATE recipes SET name = ?, description = ?, ingredients = ?, instructions = ?, "
-				+ "imageUrl = ? ,"+ " Category = ? WHERE RecipeID = ?";
+				+ "imageUrl = ? ,"+ " Category = ? WHERE recipeId = ?";
 		try (Connection connection = Utilities.getConnection(); 
 
 				PreparedStatement pmt = connection.prepareStatement(query);) {
@@ -108,13 +148,44 @@ public class RecipeDAO {
 			pmt.setString(4, recipe.getInstructions());
 			pmt.setString(5, recipe.getImageUrl());
 			pmt.setString(6, recipe.getCategory());
-			pmt.setInt(7,recipe.getRecipeId());
+			pmt.setInt(7, recipe.getRecipeId());
 			int rows = pmt.executeUpdate();
 
 			return rows == 1;
 		}
 
 	}
+	
+	
+	public Recipe findRecipeByName(String recipeName) throws DAOException {
+	    final String SELECT_QUERY = "SELECT * FROM recipes WHERE name = ?";
+
+	    try (Connection connection = Utilities.getConnection();
+	         PreparedStatement pmt = connection.prepareStatement(SELECT_QUERY)) {
+
+	        pmt.setString(1, recipeName);
+
+	        try (ResultSet rs = pmt.executeQuery()) {
+	            Recipe recipe = new Recipe();
+	            if (rs.next()) {
+	                recipe.setRecipeId(rs.getInt("recipeId"));
+	                recipe.setName(rs.getString("name"));
+	                recipe.setDescription(rs.getString("description"));
+	                recipe.setIngredients(rs.getString("ingredients"));
+	                recipe.setInstructions(rs.getString("instructions"));
+	                recipe.setImageUrl(rs.getString("imageUrl"));
+	                recipe.setCategory(rs.getString("category"));
+	                return recipe;
+	            } else {
+	                throw new DAOException("Recipe with name '" + recipeName + "' is not found");
+	            }
+
+	        }
+	    } catch (SQLException | ClassNotFoundException e) {
+	        throw new DAOException(e);
+	    }
+	}
+
 
 	// Delete recipe from DB
 	
@@ -138,5 +209,39 @@ public class RecipeDAO {
 			return rows == 1;
 		}
 	}
+	
+	
+	public List<Recipe> listRecipesByUserId(int Userid) throws DAOException {
+	    String query = "SELECT * FROM recipes WHERE Userid = ? AND isDeleted=0";
+	    
+	    try (Connection connection = Utilities.getConnection();
+	         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+	        preparedStatement.setInt(1, Userid);
+	        ResultSet resultSet = preparedStatement.executeQuery();
+	        List<Recipe> recipes = new ArrayList<>();
+
+	        while (resultSet.next()) {
+	            Recipe recipes1 = new Recipe();
+	            recipes1.setRecipeId(resultSet.getInt("recipeId"));
+	            recipes1.setName(resultSet.getString("name"));
+	            recipes1.setDescription(resultSet.getString("description"));
+	            recipes1.setImageUrl(resultSet.getString("imageUrl"));
+	            recipes1.setIngredients(resultSet.getString("ingredients"));
+	            recipes1.setInstructions(resultSet.getString("instructions"));
+	            recipes1.setCategory(resultSet.getString("category"));
+	            recipes1.setUserid(resultSet.getInt("Userid"));
+
+	            recipes.add(recipes1);
+	        }
+
+	        return recipes;
+
+	    } catch (SQLException | ClassNotFoundException e) {
+	        throw new DAOException(e);
+	    }
+	}
+
+	
 
 }
