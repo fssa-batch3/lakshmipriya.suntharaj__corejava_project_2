@@ -2,6 +2,8 @@ package com.fssa.recipe.service;
 
 
 
+import java.util.List;
+
 import com.fssa.recipe.dao.CommentDAO;
 import com.fssa.recipe.dao.exception.DAOException;
 import com.fssa.recipe.model.Comment;
@@ -27,6 +29,38 @@ public class CommentService {
         }
     }
     
+    
+    public List<Comment> getCommentsForRecipe(int recipeId) throws ServiceException {
+        try {
+            CommentDAO commentDAO = new CommentDAO();
+            return commentDAO.getCommentsForRecipe(recipeId); 
+        } catch (DAOException e) {
+            e.printStackTrace();
+            throw new ServiceException("Failed to retrieve comments for recipe.");
+        }
+    }
+    
+    
+    
+    public List<Comment> getCommentsForRecipeId(int recipeId) throws ServiceException {
+        try {
+            CommentDAO commentDAO = new CommentDAO();
+            return commentDAO.getCommentsForRecipeId(recipeId);
+        } catch (DAOException e) {
+            e.printStackTrace();
+            throw new ServiceException("Failed to retrieve comments for recipe.");
+        }
+    }
+
+    public List<Comment> getCommentsForRecipeIdDesc(int recipeId) throws ServiceException {
+        try {
+            CommentDAO commentDAO = new CommentDAO();
+            return commentDAO.getCommentsForRecipeIdDesc(recipeId);
+        } catch (DAOException e) {
+            e.printStackTrace();
+            throw new ServiceException("Failed to retrieve comments for recipe.");
+        }
+    }
     
     
 }

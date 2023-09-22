@@ -243,5 +243,37 @@ public class RecipeDAO {
 	}
 
 	
+	
+	public List<Recipe> listRecipesByCategory(String category) throws DAOException {
+	    String query = "SELECT * FROM recipes WHERE Category = ? AND isDeleted = 0";
+	    
+	    try (Connection connection = Utilities.getConnection();
+	         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+	        preparedStatement.setString(1, category);
+	        ResultSet resultSet = preparedStatement.executeQuery();
+	        List<Recipe> recipes = new ArrayList<>();
+
+	        while (resultSet.next()) {
+	            Recipe recipe = new Recipe();
+	            recipe.setRecipeId(resultSet.getInt("recipeId"));
+	            recipe.setName(resultSet.getString("name"));
+	            recipe.setDescription(resultSet.getString("description"));
+	            recipe.setImageUrl(resultSet.getString("imageUrl"));
+	            recipe.setIngredients(resultSet.getString("ingredients"));
+	            recipe.setInstructions(resultSet.getString("instructions"));
+	            recipe.setCategory(resultSet.getString("Category"));
+	            recipe.setUserid(resultSet.getInt("Userid"));
+
+	            recipes.add(recipe);
+	        }
+
+	        return recipes;
+
+	    } catch (SQLException | ClassNotFoundException e) {
+	        throw new DAOException(e);
+	    }
+	}
+
 
 }

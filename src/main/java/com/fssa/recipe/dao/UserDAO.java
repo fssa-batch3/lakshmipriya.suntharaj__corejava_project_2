@@ -103,7 +103,7 @@ public class UserDAO {
 	            ResultSet resultSet = preparedStatement.executeQuery();
 
 	            if (resultSet.next()) {
-	                // Create a User object with the retrieved data
+	                
 	                user.setUserid(resultSet.getInt("Userid"));
 	                user.setUsername(resultSet.getString("Username"));
 	                user.setPassword(resultSet.getString("password"));

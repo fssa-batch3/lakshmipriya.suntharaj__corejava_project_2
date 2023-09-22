@@ -6,11 +6,31 @@ public class Comment {
 	
 	
 	private int Userid;
-    private String comment;
+	private int comment_id;
+    public int getComment_id() {
+		return comment_id;
+	}
+
+
+	public void setComment_id(int comment_id) {
+		this.comment_id = comment_id;
+	}
+
+	private String comment;
     private int recipeId;
     private Timestamp createdTime;
+    private String username;
+    public String getUsername() {
+		return username;
+	}
 
-    public Comment(int userid,  int recipeId, String comment) {
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
+	public Comment(int userid,  int recipeId, String comment) {
 		super();
 		Userid = userid;
 		this.comment = comment;

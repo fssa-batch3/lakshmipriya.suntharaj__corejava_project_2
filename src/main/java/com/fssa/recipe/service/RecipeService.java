@@ -85,5 +85,16 @@ public class RecipeService {
 		    }
 		}
 	
-
+		public List<Recipe> listRecipesByCategory(String category) throws ServiceException {
+		    RecipeDAO recipeDAO = new RecipeDAO();
+ 
+		    try {
+		        return recipeDAO.listRecipesByCategory(category);
+		    } catch (DAOException e) {
+		        throw new ServiceException(e);
+		    }
+		}
+	
+		
+		
 }
