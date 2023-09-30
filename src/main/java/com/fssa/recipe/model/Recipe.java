@@ -11,7 +11,29 @@ public class Recipe {
     private boolean isDeleted;
     private int Userid;
     private int recipeId;
+    private int Liked;
     
+	
+
+
+	public int getLiked() {
+		return Liked;
+	}
+
+
+	public void setLiked(int liked) {
+		Liked = liked;
+	}
+
+
+	public Recipe(int userid, int recipeId) {
+		super();
+		Userid = userid;
+		this.recipeId = recipeId;
+		
+	}
+
+
 	public int getUserid() {
 		return Userid;
 	}

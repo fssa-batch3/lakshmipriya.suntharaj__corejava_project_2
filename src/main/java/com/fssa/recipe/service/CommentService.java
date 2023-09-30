@@ -2,6 +2,7 @@ package com.fssa.recipe.service;
 
 
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import com.fssa.recipe.dao.CommentDAO;
@@ -30,15 +31,6 @@ public class CommentService {
     }
     
     
-    public List<Comment> getCommentsForRecipe(int recipeId) throws ServiceException {
-        try {
-            CommentDAO commentDAO = new CommentDAO();
-            return commentDAO.getCommentsForRecipe(recipeId); 
-        } catch (DAOException e) {
-            e.printStackTrace();
-            throw new ServiceException("Failed to retrieve comments for recipe.");
-        }
-    }
     
     
     
@@ -61,6 +53,23 @@ public class CommentService {
             throw new ServiceException("Failed to retrieve comments for recipe.");
         }
     }
+   
+    
+    public double getAverageRatingForRecipe(int recipeId) throws ServiceException {
+        try {
+            CommentDAO commentDAO = new CommentDAO();
+            double averageRating = commentDAO.getAverageRatingForRecipe(recipeId);
+
+            DecimalFormat df = new DecimalFormat("#.##");
+            String formattedRating = df.format(averageRating);
+
+            return Double.parseDouble(formattedRating); 
+        } catch (DAOException e) {
+            e.printStackTrace();
+            throw new ServiceException("Failed to calculate");
+        }
+    }
+    
     
     
 }

@@ -7,7 +7,43 @@ public class Comment {
 	
 	private int Userid;
 	private int comment_id;
-    public int getComment_id() {
+	private String comment;
+    private int recipeId;
+    private Timestamp createdTime;
+    private String username;
+    private String isDeleted;
+	private double ratings;
+	
+    public double getRatings() {
+		return ratings;
+	}
+
+
+	public void setRatings(double ratings) {
+		this.ratings = ratings;
+	}
+
+
+	public Comment(int userid,int recipeId,  String comment, double ratings) {
+		super();
+		Userid = userid;
+		this.comment = comment;
+		this.recipeId = recipeId;
+		this.ratings = ratings;
+	}
+
+
+	public String getIsDeleted() {
+		return isDeleted;
+	}
+
+
+	public void setIsDeleted(String isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+
+
+	public int getComment_id() {
 		return comment_id;
 	}
 
@@ -16,10 +52,7 @@ public class Comment {
 		this.comment_id = comment_id;
 	}
 
-	private String comment;
-    private int recipeId;
-    private Timestamp createdTime;
-    private String username;
+	
     public String getUsername() {
 		return username;
 	}

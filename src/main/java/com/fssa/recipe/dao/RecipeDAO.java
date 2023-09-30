@@ -276,4 +276,124 @@ public class RecipeDAO {
 	}
 
 
+	public List<Recipe> searchRecipesByName(String searchQuery) throws DAOException {
+	    String query = "SELECT * FROM recipes WHERE isDeleted = 0 AND name LIKE ?";
+	    
+	    try (Connection connection = Utilities.getConnection();
+	         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+	        String likeQuery = "%" + searchQuery + "%";
+	        preparedStatement.setString(1, likeQuery);
+	        
+	        ResultSet resultSet = preparedStatement.executeQuery();
+	        List<Recipe> recipes = new ArrayList<>();
+
+	        while (resultSet.next()) {
+	            Recipe recipe = new Recipe();
+	            recipe.setRecipeId(resultSet.getInt("recipeId"));
+	            recipe.setName(resultSet.getString("name"));
+	            recipe.setDescription(resultSet.getString("description"));
+	            recipe.setImageUrl(resultSet.getString("imageUrl"));
+	            recipe.setIngredients(resultSet.getString("ingredients"));
+	            recipe.setInstructions(resultSet.getString("instructions"));
+	            recipe.setCategory(resultSet.getString("Category"));
+	            recipe.setUserid(resultSet.getInt("Userid"));
+
+	            recipes.add(recipe);
+	        }
+
+	        return recipes;
+
+	    } catch (SQLException | ClassNotFoundException e) {
+	        throw new DAOException(e);
+	    }
+	}
+
+	
+	
+	
+	
+	public class Main {
+	    public static void main(String[] args) {
+	        // Replace with your actual search query
+	        String searchQuery = "DOSA";
+
+	        try {
+	            RecipeDAO recipeDAO = new RecipeDAO(); 
+
+	            List<Recipe> recipes = recipeDAO.searchRecipesByName(searchQuery);
+
+	            if (recipes.isEmpty()) {
+	            	System.out.println("YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
+	                System.out.println("No recipes found for the search query: " + searchQuery);
+	            } else {
+	            	System.out.println("YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
+	                System.out.println("Recipes found for the search query: " + searchQuery);
+	                for (Recipe recipe : recipes) {
+	                    System.out.println("Recipe ID: " + recipe.getRecipeId());
+	                    System.out.println("Name: " + recipe.getName());
+	                    System.out.println("Description: " + recipe.getDescription());
+	                    System.out.println("Image URL: " + recipe.getImageUrl());
+	                    System.out.println("Ingredients: " + recipe.getIngredients());
+	                    System.out.println("Instructions: " + recipe.getInstructions());
+	                    System.out.println("Category: " + recipe.getCategory());
+	                    System.out.println("User ID: " + recipe.getUserid());
+	                    System.out.println();
+	                }
+	            }
+	        } catch (DAOException e) {
+	            System.err.println("Error searching for recipes: " + e.getMessage());
+	            e.printStackTrace();
+	        }
+	    }
+	}
+
+	
+//	public boolean addLike(int userId, int recipeId) throws SQLException, ClassNotFoundException {
+//	    int rows = 0;
+//	    String query = "INSERT INTO likes (user_id, recipe-id) VALUES (?, ?)";
+//	    
+//	    try (Connection connection = Utilities.getConnection();
+//	         PreparedStatement pmt = connection.prepareStatement(query)) {
+//	        
+//	        pmt.setInt(1, userId);
+//	        pmt.setInt(2, recipeId);
+//	        rows = pmt.executeUpdate();
+//	    }
+//	    
+//	    return rows == 1;
+//	}
+
+	
+	public Recipe getRecipeById(int recipeId) throws SQLException, ClassNotFoundException {
+	    Recipe recipe = null;
+	    String query = "SELECT * FROM recipes WHERE recipeId = ? AND isDeleted = 0";
+
+	    try (Connection connection = Utilities.getConnection();
+	         PreparedStatement pmt = connection.prepareStatement(query)) {
+
+	        pmt.setInt(1, recipeId);
+	        try (ResultSet rs = pmt.executeQuery()) {
+	            if (rs.next()) {
+	                int id = rs.getInt("recipeId");
+	                String name = rs.getString("name");
+	                String description = rs.getString("description");
+	                String ingredients = rs.getString("ingredients");
+	                String instructions = rs.getString("instructions");
+	                String imageUrl = rs.getString("imageUrl");
+	                String category = rs.getString("Category");
+	                recipe = new Recipe(id, name, description, ingredients, instructions, imageUrl, category);
+	            }
+	        }
+	    } 
+
+	    return recipe;
+	}
+
+	
+	
+	
+	
+	
+	
 }

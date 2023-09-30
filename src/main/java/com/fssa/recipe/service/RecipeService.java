@@ -63,6 +63,20 @@ public class RecipeService {
 			throw new ServiceException(e);
 		}
 	}
+	
+	
+	public Recipe viewRecipeById(int recipeId) throws ServiceException {
+		try {
+			RecipeDAO recipeDAO = new RecipeDAO();
+
+			return recipeDAO.findRecipeById(recipeId);
+		} catch (DAOException e) {
+			throw new ServiceException(e);
+		}
+	}
+	
+	
+	
 
 	public Recipe findRecipeByName(String name) throws ServiceException {
 		try {
@@ -96,5 +110,24 @@ public class RecipeService {
 		}
 	
 		
+		public List<Recipe> searchRecipesByName(String searchQuery) throws ServiceException {
+	        try {
+	        	RecipeDAO recipeDAO = new RecipeDAO();
+	            return recipeDAO.searchRecipesByName(searchQuery);
+	        } catch (DAOException e) {
+	            throw new ServiceException(e);
+	        }
+	    }
+		
+		
+		public Recipe getRecipeById(int recipeId) throws ServiceException {
+	        try {
+	        	RecipeDAO recipeDAO = new RecipeDAO();
+	            return recipeDAO.getRecipeById(recipeId);
+	        } catch (ClassNotFoundException | SQLException e) {
+	            throw new ServiceException(e);
+	        }
+	    }
+
 		
 }

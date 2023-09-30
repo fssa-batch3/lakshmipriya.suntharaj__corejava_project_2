@@ -20,7 +20,7 @@ public class TestCommentListFeature {
         CommentService commentService = new CommentService();
        
         try {
-            List<Comment> comments = commentService.getCommentsForRecipe(26);
+            List<Comment> comments = commentService.getCommentsForRecipeId(26);
 
             assertNotNull(comments);
             assertTrue(comments.size() >= 0);
