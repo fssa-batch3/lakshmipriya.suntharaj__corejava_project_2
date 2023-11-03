@@ -39,7 +39,7 @@ public class CommentService {
             CommentDAO commentDAO = new CommentDAO();
             return commentDAO.getCommentsForRecipeId(recipeId);
         } catch (DAOException e) {
-            e.printStackTrace();
+           
             throw new ServiceException("Failed to retrieve comments for recipe.");
         }
     }
@@ -49,8 +49,8 @@ public class CommentService {
             CommentDAO commentDAO = new CommentDAO();
             return commentDAO.getCommentsForRecipeIdDesc(recipeId);
         } catch (DAOException e) {
-            e.printStackTrace();
-            throw new ServiceException("Failed to retrieve comments for recipe.");
+           
+            throw new ServiceException(e);
         }
     }
    
@@ -65,7 +65,7 @@ public class CommentService {
 
             return Double.parseDouble(formattedRating); 
         } catch (DAOException e) {
-            e.printStackTrace();
+           
             throw new ServiceException("Failed to calculate");
         }
     }

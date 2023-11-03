@@ -95,8 +95,8 @@ public class CommentDAO {
 
 	    String query = "SELECT comment.comment_id, recipes.recipeId, user.Userid, comment.comment_text, comment.ratings, comment.created_at "
 	    	    + "FROM comment "
-	    	    + "INNER JOIN recipes ON comment.RecipeId = recipes.recipeId "
-	    	    + "INNER JOIN user ON comment.UserId = user.UserId "
+	    	    + "INNER JOIN recipes ON comment.recipeId = recipes.recipeId "
+	    	    + "INNER JOIN user ON comment.UserId = user.UserId " 
 	    	    + "WHERE recipes.recipeId = ? "
 	    	    + "ORDER BY comment.created_at DESC";
 	    
@@ -154,22 +154,7 @@ public class CommentDAO {
 	    return averageRating;
 	}
 
-//	public static void main(String[] args) {
-//	    int recipeId = 33; // Replace with the actual recipe ID you want to calculate the average rating for
-//
-//	    try {
-//	        CommentDAO cmt = new CommentDAO();
-//	        double averageRating = cmt.getAverageRatingForRecipe(recipeId);
-//
-//	        // Format the averageRating to two decimal places
-//	        DecimalFormat df = new DecimalFormat("#.#");
-//	        String formattedRating = df.format(averageRating);
-//
-//	        System.out.println("Average Rating for Recipe " + recipeId + ": " + formattedRating);
-//	    } catch (DAOException e) {
-//	        e.printStackTrace();
-//	    }
-//	}
+
 
 	
 }

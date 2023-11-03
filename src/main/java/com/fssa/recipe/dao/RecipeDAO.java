@@ -349,20 +349,7 @@ public class RecipeDAO {
 	}
 
 	
-//	public boolean addLike(int userId, int recipeId) throws SQLException, ClassNotFoundException {
-//	    int rows = 0;
-//	    String query = "INSERT INTO likes (user_id, recipe-id) VALUES (?, ?)";
-//	    
-//	    try (Connection connection = Utilities.getConnection();
-//	         PreparedStatement pmt = connection.prepareStatement(query)) {
-//	        
-//	        pmt.setInt(1, userId);
-//	        pmt.setInt(2, recipeId);
-//	        rows = pmt.executeUpdate();
-//	    }
-//	    
-//	    return rows == 1;
-//	}
+
 
 	
 	public Recipe getRecipeById(int recipeId) throws SQLException, ClassNotFoundException {

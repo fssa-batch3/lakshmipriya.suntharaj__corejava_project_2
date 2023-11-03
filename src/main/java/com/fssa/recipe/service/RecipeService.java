@@ -112,6 +112,7 @@ public class RecipeService {
 		
 		public List<Recipe> searchRecipesByName(String searchQuery) throws ServiceException {
 	        try {
+	        	
 	        	RecipeDAO recipeDAO = new RecipeDAO();
 	            return recipeDAO.searchRecipesByName(searchQuery);
 	        } catch (DAOException e) {
@@ -127,6 +128,7 @@ public class RecipeService {
 	        } catch (ClassNotFoundException | SQLException e) {
 	            throw new ServiceException(e);
 	        }
+	       
 	    }
 
 		

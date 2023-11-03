@@ -17,7 +17,7 @@ public class LikeService {
             return likesDAO.addLike(userId, recipeId);
         } catch (SQLException | ClassNotFoundException e) {
             
-            e.printStackTrace();
+            
             throw new ServiceException(e);
         }
     }
@@ -31,7 +31,7 @@ public class LikeService {
             return likesDAO.getLikedRecipesByUserId(userId);
         } catch (SQLException | ClassNotFoundException e) {
             
-            e.printStackTrace();
+            
             throw new ServiceException(e);
         }
     }
@@ -44,7 +44,7 @@ public class LikeService {
             return likesDAO.hasLiked(userId, recipeId);
         } catch (SQLException | ClassNotFoundException e) {
             
-            e.printStackTrace();
+           
             throw new ServiceException(e);
         }
     }
@@ -57,39 +57,18 @@ public class LikeService {
             return likesDAO.dislikeRecipe(userId, recipeId);
         } catch (SQLException | ClassNotFoundException e) {
             
-            e.printStackTrace();
+           
             throw new ServiceException(e);
         }
     }
     
     
     
-//    
-//    class Main {
-//        public static void main(String[] args) {
-//            LikeService likeService = new LikeService();
-//
-//            // Example usage: Adding a like
-//            int userId = 13; // Replace with the actual user ID
-//            int recipeId = 33; // Replace with the actual recipe ID
-//
-//            boolean likeAdded = likeService.addLike(userId, recipeId);
-//
-//            if (likeAdded) {
-//                System.out.println("Like added successfully.");
-//            } else {
-//                System.out.println("Failed to add like.");
-//            }
-//
-//            // You can add more operations here, such as removing likes or fetching likes.
-//        }
-//    }
-//   
+
     
     
     
     
-    //list like main method 
     
     
     

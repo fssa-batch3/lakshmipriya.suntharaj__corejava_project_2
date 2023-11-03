@@ -1,3 +1,4 @@
+C:\Users\LakshmiPriyaSunthara\Documents\GitHub\lakshmipriya.suntharaj__corejava_project_2\src\main\java\com\fssa\recipe\service\LikeService.java
 C:\Users\LakshmiPriyaSunthara\Documents\GitHub\lakshmipriya.suntharaj__corejava_project_2\src\main\java\com\fssa\recipe\dao\exception\DAOException.java
 C:\Users\LakshmiPriyaSunthara\Documents\GitHub\lakshmipriya.suntharaj__corejava_project_2\src\main\java\com\fssa\recipe\dao\CommentDAO.java
 C:\Users\LakshmiPriyaSunthara\Documents\GitHub\lakshmipriya.suntharaj__corejava_project_2\src\main\java\com\fssa\recipe\model\Recipe.java
@@ -8,11 +9,14 @@ C:\Users\LakshmiPriyaSunthara\Documents\GitHub\lakshmipriya.suntharaj__corejava_
 C:\Users\LakshmiPriyaSunthara\Documents\GitHub\lakshmipriya.suntharaj__corejava_project_2\src\main\java\com\fssa\recipe\dao\UserDAO.java
 C:\Users\LakshmiPriyaSunthara\Documents\GitHub\lakshmipriya.suntharaj__corejava_project_2\src\main\java\com\fssa\recipe\validation\exception\InvalidCommentException.java
 C:\Users\LakshmiPriyaSunthara\Documents\GitHub\lakshmipriya.suntharaj__corejava_project_2\src\main\java\com\fssa\recipe\validation\RecipeValidator.java
+C:\Users\LakshmiPriyaSunthara\Documents\GitHub\lakshmipriya.suntharaj__corejava_project_2\src\main\java\com\fssa\recipe\model\Like.java
 C:\Users\LakshmiPriyaSunthara\Documents\GitHub\lakshmipriya.suntharaj__corejava_project_2\src\main\java\com\fssa\recipe\service\RecipeService.java
 C:\Users\LakshmiPriyaSunthara\Documents\GitHub\lakshmipriya.suntharaj__corejava_project_2\src\main\java\com\fssa\recipe\dao\RecipeDAO.java
 C:\Users\LakshmiPriyaSunthara\Documents\GitHub\lakshmipriya.suntharaj__corejava_project_2\src\main\java\com\fssa\recipe\service\CommentService.java
 C:\Users\LakshmiPriyaSunthara\Documents\GitHub\lakshmipriya.suntharaj__corejava_project_2\src\main\java\com\fssa\recipe\validation\exception\InValidRecipeException.java
 C:\Users\LakshmiPriyaSunthara\Documents\GitHub\lakshmipriya.suntharaj__corejava_project_2\src\main\java\com\fssa\recipe\service\exception\ServiceException.java
 C:\Users\LakshmiPriyaSunthara\Documents\GitHub\lakshmipriya.suntharaj__corejava_project_2\src\main\java\com\fssa\recipe\service\UserService.java
+C:\Users\LakshmiPriyaSunthara\Documents\GitHub\lakshmipriya.suntharaj__corejava_project_2\src\main\java\com\fssa\recipe\dao\LikeDAO.java
 C:\Users\LakshmiPriyaSunthara\Documents\GitHub\lakshmipriya.suntharaj__corejava_project_2\src\main\java\com\fssa\recipe\validation\CommentValidator.java
 C:\Users\LakshmiPriyaSunthara\Documents\GitHub\lakshmipriya.suntharaj__corejava_project_2\src\main\java\com\fssa\recipe\validation\UserValidator.java
+C:\Users\LakshmiPriyaSunthara\Documents\GitHub\lakshmipriya.suntharaj__corejava_project_2\src\main\java\com\fssa\recipe\model\Rating.java
