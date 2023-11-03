@@ -101,7 +101,7 @@ public class UserService {
             }
         } catch (ServiceException e) {
             System.err.println("Error: " + e.getMessage());
-            e.printStackTrace();
+            
         }
     }
 	

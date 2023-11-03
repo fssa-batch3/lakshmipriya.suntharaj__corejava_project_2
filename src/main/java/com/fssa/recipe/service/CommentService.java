@@ -24,7 +24,7 @@ public class CommentService {
             return commentDAO.createComment(comment);
 
         }  catch ( DAOException | InvalidCommentException e) {
-        	e.printStackTrace();
+        	
             throw new ServiceException("Failed to create comment.");
             
         }

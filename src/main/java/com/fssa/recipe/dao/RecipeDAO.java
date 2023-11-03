@@ -343,7 +343,7 @@ public class RecipeDAO {
 	            }
 	        } catch (DAOException e) {
 	            System.err.println("Error searching for recipes: " + e.getMessage());
-	            e.printStackTrace();
+	          
 	        }
 	    }
 	}
