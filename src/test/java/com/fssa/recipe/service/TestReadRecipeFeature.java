@@ -22,11 +22,7 @@ import java.util.List;
         
         assertNotNull(recipes);
        
-        for (Recipe recipe : recipes) {
-          
-        	System.out.println(recipe.toString());
-        }
-        System.out.println("Successfully viewwd all recipe");
+       
     }
     catch (Exception e) {
         e.printStackTrace();

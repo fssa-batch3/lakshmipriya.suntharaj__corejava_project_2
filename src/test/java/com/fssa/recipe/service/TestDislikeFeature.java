@@ -20,7 +20,7 @@ public class TestDislikeFeature {
 			System.out.println("recipe disliked successfully");
 
 		} catch (ServiceException e) { 
-			e.printStackTrace();
+			
 			fail();
 			
 		}

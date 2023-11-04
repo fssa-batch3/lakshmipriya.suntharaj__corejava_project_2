@@ -9,8 +9,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import com.fssa.recipe.service.exception.ServiceException;
-
-public class TestListLikedRecipe {
+ class TestListLikedRecipe {
 	@Test
     void testGetLikedRecipesWithValidUserId() {
 		LikeService likeService = new LikeService();

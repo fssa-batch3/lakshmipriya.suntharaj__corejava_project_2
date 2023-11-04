@@ -17,7 +17,7 @@ class TestRegisterFeature {
 			try {
 				assertTrue(UserService.registerUser(user1)); 
 			} catch (ServiceException e) {
-				e.printStackTrace();  
+				  
 				fail(); 
 			}
 		}
@@ -33,7 +33,7 @@ class TestRegisterFeature {
 			userService.registerUser(user1);
 			fail();
 		} catch (ServiceException e) {
-			e.printStackTrace();
+			
 
 		}
 	}
@@ -51,7 +51,7 @@ class TestRegisterFeature {
 			}
 			fail();
 		} catch (ServiceException e) {
-			e.printStackTrace();
+			
 		}
 	}
 

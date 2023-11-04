@@ -1,9 +1,9 @@
 package com.fssa.recipe.service;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
-
 
 import com.fssa.recipe.service.exception.ServiceException;
 
@@ -16,13 +16,11 @@ class TestRecipeDeleteFeature {
 		int recipeIdToDelete = 25;
 		try {
 			assertTrue(RecipeService.deleteRecipe(recipeIdToDelete));
-			System.out.println("recipe deleted successfully");
+			
 
-		} catch (ServiceException e) { 
-			e.printStackTrace();
+		} catch (ServiceException e) {
+			fail();
 		}
 	}
 
-	
-	
 }

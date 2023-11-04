@@ -11,8 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import com.fssa.recipe.model.Comment;
 import com.fssa.recipe.service.exception.ServiceException;
-
-public class TestCommentListFeature {
+ class TestCommentListFeature {
 
 	
 	@Test

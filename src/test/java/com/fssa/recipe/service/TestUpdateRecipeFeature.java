@@ -23,7 +23,7 @@ import com.fssa.recipe.service.exception.ServiceException;
         	assertTrue(recipeService.updateRecipe(recipe));
         } catch (ServiceException e) { 
         	fail();
-            e.printStackTrace();
+            
             
         }
     }
@@ -38,7 +38,7 @@ import com.fssa.recipe.service.exception.ServiceException;
             recipeService.updateRecipe(recipe);
             fail();
         } catch (ServiceException e) {
-           e.printStackTrace();
+           
         }
     }
 

@@ -1,16 +1,15 @@
 package com.fssa.recipe.service;
 
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
+
 
 import org.junit.jupiter.api.Test;
 
-import com.fssa.recipe.dao.UserDAO;
-import com.fssa.recipe.dao.exception.DAOException;
+
 import com.fssa.recipe.model.User;
 import com.fssa.recipe.service.exception.ServiceException;
  class TestLoginFeature {
@@ -25,7 +24,7 @@ import com.fssa.recipe.service.exception.ServiceException;
     try {
         assertTrue(userService.loginUser(user)); 
     } catch (ServiceException e) {
-    	e.printStackTrace();
+    	
     	
     }
     }
@@ -39,7 +38,7 @@ import com.fssa.recipe.service.exception.ServiceException;
 	    try {
 	        assertFalse(userService.loginUser(user2)); //asexcepted
 	    } catch (ServiceException e) {
-	        e.printStackTrace();
+	        
 	    }
 	}
 	
@@ -51,7 +50,7 @@ import com.fssa.recipe.service.exception.ServiceException;
 			assertFalse(userService.loginUser(user3));
 		} catch (ServiceException e) {
 			
-			e.printStackTrace();
+			
 		}
     }
 
