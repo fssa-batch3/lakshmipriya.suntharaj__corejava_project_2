@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import com.fssa.recipe.service.exception.ServiceException;
 
-public class TestDislikeFeature {
+ class TestDislikeFeature {
 
 	@Test
 	void testDislikeRecipeSuccess() throws ClassNotFoundException {

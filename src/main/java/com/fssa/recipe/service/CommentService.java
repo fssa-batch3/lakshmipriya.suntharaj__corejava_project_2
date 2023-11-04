@@ -34,15 +34,7 @@ public class CommentService {
     
     
     
-    public List<Comment> getCommentsForRecipeId(int recipeId) throws ServiceException {
-        try {
-            CommentDAO commentDAO = new CommentDAO();
-            return commentDAO.getCommentsForRecipeId(recipeId);
-        } catch (DAOException e) {
-           
-            throw new ServiceException("Failed to retrieve comments for recipe.");
-        }
-    }
+  
 
     public List<Comment> getCommentsForRecipeIdDesc(int recipeId) throws ServiceException {
         try {
