@@ -10,7 +10,7 @@ class TestCommentFeature2 {
 	@Test
 	void testCreateCommentSuccess() {
 	    CommentService commentService = new CommentService();
-	    Comment comment = new Comment(36, 24,  "This is a valid comment."); 	
+	    Comment comment = new Comment(36, 24, "This is a valid comment."); 	
 	    try {
 	        assertTrue(commentService.createComment(comment));
 	        

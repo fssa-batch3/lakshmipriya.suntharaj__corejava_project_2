@@ -63,31 +63,7 @@ public class CommentDAO {
 	
 	
 	
-	public List<Comment> getCommentsForRecipeId(int recipeId) throws DAOException {
-	    List<Comment> comments = new ArrayList<>();
-
-	    String query = "SELECT Userid, comment_text, created_at FROM comment WHERE recipeId = ?";
-	    
-	    try (Connection connection = Utilities.getConnection();
-	         PreparedStatement pmt = connection.prepareStatement(query)) {
-	        pmt.setInt(1, recipeId); 
-
-	        try (ResultSet rs = pmt.executeQuery()) {
-	            while (rs.next()) {
-	                Comment comment = new Comment();
-	                comment.setUserid(rs.getInt("Userid"));
-	                comment.setComment(rs.getString("comment_text"));
-	                comment.setCreatedTime(rs.getTimestamp("created_at"));
-	                comments.add(comment);
-	            }
-	        }
-	    } catch (ClassNotFoundException | SQLException e) {
-	        throw new DAOException(e);
-	    }
-
-	    return comments;
-	}
-
+	
 	
 	
 	public List<Comment> getCommentsForRecipeIdDesc(int recipeId) throws DAOException {
