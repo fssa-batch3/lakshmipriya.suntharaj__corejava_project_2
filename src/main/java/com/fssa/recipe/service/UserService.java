@@ -31,7 +31,7 @@ public class UserService {
 			UserDAO userDAO = new UserDAO();
 			if (userDAO.login(user)) {
 
-				System.out.println(user.getEmail() + " Successfully logged in");
+				
 				return true;
 			}
 		} catch (Exception e) {
@@ -83,26 +83,6 @@ public class UserService {
 	
 	
 	
-	public static void main1(String[] args) {
-        UserService userService = new UserService();
-
-      
-        String emailToFind = "muthubro@gmail.com";
-
-        try {
-            User foundUser = userService.findUserByEmail(emailToFind);
-            if (foundUser != null) {
-                System.out.println("User found:");
-                System.out.println("Name: " + foundUser.getUsername());
-                System.out.println("Email: " + foundUser.getEmail());
-                
-            } else {
-                System.out.println("User not found for email: " + emailToFind);
-            }
-        } catch (ServiceException e) {
-            System.err.println("Error: " + e.getMessage());
-            
-        }
-    }
+	
 	
 }

@@ -24,11 +24,10 @@ public class RecipeService {
 
 	public List<Recipe> getAllRecipes() throws ServiceException, ClassNotFoundException {
 		try {
-			System.out.println("getAllRecipes() =======================");
+			
 			RecipeDAO recipeDAO = new RecipeDAO();
 			List<Recipe> recipedetail = recipeDAO.getAllRecipes();
-			System.out.println(recipedetail);
-			System.out.println("getAllRecipes() =======================");
+			
 			return recipedetail;
 		} catch (SQLException e) { 
 			throw new ServiceException(e);

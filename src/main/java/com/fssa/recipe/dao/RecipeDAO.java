@@ -315,7 +315,7 @@ public class RecipeDAO {
 	
 	public class Main {
 	    public static void main(String[] args) {
-	        // Replace with your actual search query
+	        
 	        String searchQuery = "DOSA";
 
 	        try {
@@ -324,11 +324,9 @@ public class RecipeDAO {
 	            List<Recipe> recipes = recipeDAO.searchRecipesByName(searchQuery);
 
 	            if (recipes.isEmpty()) {
-	            	System.out.println("YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
-	                System.out.println("No recipes found for the search query: " + searchQuery);
+	            	
 	            } else {
-	            	System.out.println("YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
-	                System.out.println("Recipes found for the search query: " + searchQuery);
+	            	
 	                for (Recipe recipe : recipes) {
 	                    System.out.println("Recipe ID: " + recipe.getRecipeId());
 	                    System.out.println("Name: " + recipe.getName());
@@ -342,7 +340,7 @@ public class RecipeDAO {
 	                }
 	            }
 	        } catch (DAOException e) {
-	            System.err.println("Error searching for recipes: " + e.getMessage());
+	             e.getMessage();
 	          
 	        }
 	    }

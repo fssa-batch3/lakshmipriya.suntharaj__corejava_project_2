@@ -31,7 +31,7 @@ public class CommentDAO {
 	        throw new DAOException(e);
 	    }
 	}
-	
+	 
 	
 	public List<Comment> getCommentsForRecipe() throws DAOException {
         List<Comment> comments = new ArrayList<>();

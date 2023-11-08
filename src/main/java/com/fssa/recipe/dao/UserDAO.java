@@ -142,28 +142,7 @@ public class UserDAO {
 	
 	
 	
-//	public static void main(String[] args) {
-//	    try {
-//	        int userIdToFind = 35;
-//
-//	        UserDAO userDAO = new UserDAO();
-//
-//	        User user = userDAO.findUserByUserid(userIdToFind);
-//
-//	        if (user.getUserid() != 0) {
-//	            System.out.println("User found:");
-//	            System.out.println("User ID: " + user.getUserid());
-//	            System.out.println("Username: " + user.getUsername());
-//	            System.out.println("Email: " + user.getEmail());
-//	        } else {
-//	            System.out.println("User not found for UserID: " + userIdToFind);
-//	        }
-//	    } catch (DAOException e) {
-//	        System.err.println("Error: " + e.getMessage());
-//	    }
-//	}
-//
-//	
+
 	
 	}
 
