@@ -71,7 +71,7 @@ public class RecipeDAO {
 				ResultSet rs = pmt.executeQuery()) {
 
 			while (rs.next()) {
-				System.out.println(rs.getInt("recipeId"));
+				
                 int recipeId = rs.getInt("recipeId");
 				String name = rs.getString("name");
 				String description = rs.getString("description");
@@ -313,38 +313,7 @@ public class RecipeDAO {
 	
 	
 	
-	public class Main {
-	    public static void main(String[] args) {
-	        
-	        String searchQuery = "DOSA";
-
-	        try {
-	            RecipeDAO recipeDAO = new RecipeDAO(); 
-
-	            List<Recipe> recipes = recipeDAO.searchRecipesByName(searchQuery);
-
-	            if (recipes.isEmpty()) {
-	            	
-	            } else {
-	            	
-	                for (Recipe recipe : recipes) {
-	                    System.out.println("Recipe ID: " + recipe.getRecipeId());
-	                    System.out.println("Name: " + recipe.getName());
-	                    System.out.println("Description: " + recipe.getDescription());
-	                    System.out.println("Image URL: " + recipe.getImageUrl());
-	                    System.out.println("Ingredients: " + recipe.getIngredients());
-	                    System.out.println("Instructions: " + recipe.getInstructions());
-	                    System.out.println("Category: " + recipe.getCategory());
-	                    System.out.println("User ID: " + recipe.getUserid());
-	                    System.out.println();
-	                }
-	            }
-	        } catch (DAOException e) {
-	             e.getMessage();
-	          
-	        }
-	    }
-	}
+	
 
 	
 
