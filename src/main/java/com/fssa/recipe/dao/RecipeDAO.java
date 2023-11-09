@@ -302,7 +302,7 @@ public class RecipeDAO {
 	            recipes.add(recipe);
 	        }
 
-	        return recipes;
+	        return recipes; 
 
 	    } catch (SQLException | ClassNotFoundException e) {
 	        throw new DAOException(e);

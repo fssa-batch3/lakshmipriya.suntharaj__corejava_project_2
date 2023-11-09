@@ -33,30 +33,7 @@ public class CommentDAO {
 	}
 	 
 	
-	public List<Comment> getCommentsForRecipe() throws DAOException {
-        List<Comment> comments = new ArrayList<>();
-
-        String query = "SELECT Userid, comment_text, created_at FROM comment";
-        
-        try (Connection connection = Utilities.getConnection();
-             PreparedStatement pmt = connection.prepareStatement(query)) {
-           
-            
-            try (ResultSet rs = pmt.executeQuery()) {
-                while (rs.next()) {
-                    Comment comment = new Comment();
-                    comment.setUserid(rs.getInt("Userid"));
-                    comment.setComment(rs.getString("comment_text"));
-                    comment.setCreatedTime(rs.getTimestamp("created_at"));
-                    comments.add(comment);
-                }
-            }
-        } catch (ClassNotFoundException | SQLException e) {
-            throw new DAOException(e);
-        }
-
-        return comments;
-    }
+	
 	
 	
 	
@@ -92,21 +69,12 @@ public class CommentDAO {
 	    } catch (ClassNotFoundException | SQLException e) {
 	        throw new DAOException(e);
 	    }
-
+ 
 	    return comments;
-	}
+	} 
 
 
-	public boolean deleteComment(int commendid) throws SQLException, ClassNotFoundException {
-		String query = "UPDATE  recipes SET isDeleted = ? WHERE RecipeId = ?";
-		try (Connection connection = Utilities.getConnection();
-		    PreparedStatement pmt = connection.prepareStatement(query)) {
-			pmt.setBoolean(1, true);
-			pmt.setInt(2, commendid);
-			int rows = pmt.executeUpdate();
-			return rows == 1;
-		}
-	}
+	
 	
 	
 	

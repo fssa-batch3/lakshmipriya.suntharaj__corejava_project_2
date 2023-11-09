@@ -2,8 +2,10 @@ package com.fssa.recipe.service;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.function.BooleanSupplier;
 
 import com.fssa.recipe.dao.LikeDAO;
+import com.fssa.recipe.model.Like;
 import com.fssa.recipe.service.exception.ServiceException;
 	
 
@@ -61,11 +63,14 @@ public class LikeService {
             throw new ServiceException(e);
         }
     }
+
+
+	
     
     
     
 
-    
+     
     
     
     

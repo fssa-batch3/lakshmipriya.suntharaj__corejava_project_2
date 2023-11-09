@@ -50,7 +50,7 @@ class TestRegisterFeature {
 				userService.registerUser(user);
 			}
 			fail();
-		} catch (ServiceException e) {
+		} catch (ServiceException e) { 
 			
 		}
 	}

@@ -22,7 +22,7 @@ public class CommentService {
         	CommentValidator.validateComment(comment);
         	CommentDAO commentDAO = new CommentDAO();
             return commentDAO.createComment(comment);
-
+ 
         }  catch ( DAOException | InvalidCommentException e) {
         	
             throw new ServiceException("Failed to create comment.");

@@ -22,7 +22,7 @@ public class LikeDAO {
         pmt.setInt(2, recipeId);
         rows = pmt.executeUpdate();
     }
-     
+      
     return rows == 1;
 }
 	

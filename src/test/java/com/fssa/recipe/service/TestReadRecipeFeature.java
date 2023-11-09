@@ -20,14 +20,14 @@ import java.util.List;
         try {
             recipes = recipeService.getAllRecipes();
         
-        assertNotNull(recipes);
+        assertNotNull(recipes); 
        
        
     }
     catch (Exception e) {
-        e.printStackTrace();
+        
         fail("An exception occurred");
-    }
+    } 
      
     }
     }
