@@ -65,7 +65,7 @@ public class RecipeDAO {
 	public List<Recipe> getAllRecipes() throws SQLException, ClassNotFoundException {
 		List<Recipe> recipes = new ArrayList<>();
 
-		String query = "SELECT * FROM recipes WHERE isDeleted = 0 ";
+		String query = "SELECT * FROM recipes WHERE isDeleted = 0 ORDER BY recipeId DESC";
 		try (Connection connection = Utilities.getConnection(); 
 				PreparedStatement pmt = connection.prepareStatement(query);
 				ResultSet rs = pmt.executeQuery()) {
@@ -312,6 +312,39 @@ public class RecipeDAO {
 	
 	
 	
+	public List<Recipe> searchRecipesByIngredient(String searchQuery) throws DAOException {
+	    String query = "SELECT * FROM recipes WHERE isDeleted = 0 AND ingredients LIKE ?";
+	    
+	    try (Connection connection = Utilities.getConnection();
+	         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+	        String likeQuery = "%" + searchQuery + "%";
+	        preparedStatement.setString(1, likeQuery);
+	        
+	        ResultSet resultSet = preparedStatement.executeQuery();
+	        List<Recipe> recipes = new ArrayList<>();
+
+	        while (resultSet.next()) {
+	            Recipe recipe = new Recipe();
+	            recipe.setRecipeId(resultSet.getInt("recipeId"));
+	            recipe.setName(resultSet.getString("name"));
+	            recipe.setDescription(resultSet.getString("description"));
+	            recipe.setImageUrl(resultSet.getString("imageUrl"));
+	            recipe.setIngredients(resultSet.getString("ingredients"));
+	            recipe.setInstructions(resultSet.getString("instructions"));
+	            recipe.setCategory(resultSet.getString("Category"));
+	            recipe.setUserid(resultSet.getInt("Userid"));
+
+	            recipes.add(recipe);
+	        }
+
+	        return recipes; 
+
+	    } catch (SQLException | ClassNotFoundException e) {
+	        throw new DAOException(e);
+	    }
+	}
+
 	
 	
 
@@ -346,7 +379,35 @@ public class RecipeDAO {
 
 	
 	
-	
+	public static void main(String[] args) {
+	    String searchQuery = "Rice"; 
+
+	    try {
+	        RecipeDAO dao = new RecipeDAO(); // Instantiate your DAO class
+
+	        List<Recipe> recipes = dao.searchRecipesByIngredient(searchQuery);
+ 
+	        if (recipes.isEmpty()) {
+	            System.out.println("No recipes found with the given ingredient.");
+	        } else {
+	            System.out.println("Recipes containing '" + searchQuery + "':");
+	            for (Recipe recipe : recipes) {
+	                System.out.println("Recipe ID: " + recipe.getRecipeId());
+	                System.out.println("Name: " + recipe.getName());
+	                System.out.println("Description: " + recipe.getDescription());
+	                System.out.println("Ingredients: " + recipe.getIngredients());
+	                System.out.println("Instructions: " + recipe.getInstructions());
+	                System.out.println("Category: " + recipe.getCategory());
+	                System.out.println("User ID: " + recipe.getUserid());
+	                System.out.println("Image URL: " + recipe.getImageUrl());
+	                System.out.println(".........................................");
+	            }
+	        }
+
+	    } catch (DAOException e) {
+	        System.err.println("Error while searching for recipes: " + e.getMessage());
+	    }
+	}
 	
 	
 	

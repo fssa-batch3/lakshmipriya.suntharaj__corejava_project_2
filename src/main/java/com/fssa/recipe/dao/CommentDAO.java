@@ -31,16 +31,6 @@ public class CommentDAO {
 	        throw new DAOException(e);
 	    }
 	}
-	 
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	public List<Comment> getCommentsForRecipeIdDesc(int recipeId) throws DAOException {
